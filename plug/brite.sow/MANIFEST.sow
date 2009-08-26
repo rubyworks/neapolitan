@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+argument(:package) do |v|
+  raise ArgumentError, "Package name required." unless v
+  raise ArgumentError, "Package name must be single word." unless /^\w+$/ =~ v
+  v
+end
+
+manifest do
+  copy "**/*"               , '.'
+  #copy "lib/package-"       , "lib/#{package}"
+  #copy "gen/lib/package-"   , "gen/lib/#{package}>"
+  #copy "gen/lib/package-/*" , "gen/lib/#{package}/"
+end
+

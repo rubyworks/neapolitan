@@ -1,0 +1,169 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+
+  <title>weB wRITE!</title>
+
+  <!-- google verification TODO -->
+
+  <meta name="DESCRIPTION"
+        content="Webrite is a K.I.S.S. website builder."/>
+
+  <link rel="icon" href="assets/images/icon.jpg" type="image/x-icon" />
+
+  <link href="atom.xml" rel="alternate" title="blog.webrite.rubyforge.org" type="application/atom+xml" />
+
+  <!-- STYLESHEETS -->
+
+  <link href="assets/styles/reset.css"  rel="stylesheet" type="text/css" />
+
+  <link href="assets/styles/screen.css" rel="stylesheet" type="text/css" media="screen, projection" />
+  <link href="assets/styles/print.css"  rel="stylesheet" type="text/css" media="print" />
+
+  <!--[if IE]>
+      <link href="assets/styles/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <![endif]-->
+
+  <link href="assets/styles/form.css"  rel="stylesheet" type="text/css" />
+  <link href="assets/styles/font.css"    rel="stylesheet" type="text/css" />
+  <link href="assets/styles/color.css"   rel="stylesheet" type="text/css" />
+  <!-- <link href="assets/styles/syntax.css"  rel="stylesheet" type="text/css" /> -->
+
+  <!-- <script src="js/rdocs.js" type="text/javascript"></script> -->
+</head>
+
+</body>
+</html>
+
+<body>
+
+<div class="main">
+
+  <div class="header">
+    <div class="title">
+      brite
+    </div>
+    <div class="menu">
+      <ul>
+      <li><a href="rdoc/index.html">RDocs</a></li>
+      <li><a href="qedoc/index.html">QEDocs</a></li>
+      <li><a href="http://rubyforge.org/projects/proutils/">Rubyforge</a></li>
+      <li><a href="http://github.com/proutils/brite/">GitHub</a></li>
+      <li><a href="http://groups.google.com/group/tigerops-community?hl=en">Mailinglist</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- <div id="drop_shadow"></div> -->
+
+  <br style="float: clear;"/>
+
+  <div id="content">
+    <h1>The &quot;Brite&quot; Idea</h1>
+<p>
+Brite is a static website/blog generation tool. It is very easy to use, and
+borrows best-of-breed ideas from a number of similar projects.
+</p>
+<p>
+Note that this is early release. There is still a good bit to do yet to
+bring Brite up to full-speed.
+</p>
+<h1>Overview</h1>
+<p>
+You will likely want to install using RubyGems.
+</p>
+<pre>
+  $ gem install brite
+</pre>
+<p>
+If you&#8217;re old fashion and want to install to a site location, please
+use Setup.rb (http://setup.rubyforge.org).
+</p>
+<p>
+The best way to get started is to copy the example site located in
+plug/brite.sow/ directory of the Brite project. For and easier method you
+can install Sow(see http://proutils.rubyforge.org) and then use:
+</p>
+<pre>
+  $ sow brite &lt;site-dir&gt;
+</pre>
+<p>
+In either case you will notice these files:
+</p>
+<pre>
+  2009/09/sample.post
+  assets/images/logo.jpg
+  assets/styles/reset.css
+  assets/styles/font.css
+  assets/styles/color.css
+  assets/styles/form.css
+  page.layout
+  post.layout
+  index.page
+</pre>
+<p>
+Look them over carefully, and I think you will quickly see how the system
+works. Try editing a few of the files. Then, when you are ready, from the
+toplevel of the directory, type:
+</p>
+<pre>
+  $ brite
+</pre>
+<p>
+Brite will list the files generated. Now you can fire up you browser:
+</p>
+<pre>
+  $ firefox index.html
+</pre>
+<p>
+And all things are made bright :)
+</p>
+<h1>Copyright &amp; License</h1>
+<p>
+Brite is Copyright &#169; 2009 Thomas Sawyer
+</p>
+<p>
+It is distributed under the terms of the GPL license.
+</p>
+
+  </div>
+
+</div>
+
+<br style="clear: both;"/><br/><br/>
+
+<div class="footer">
+  <img src="assets/images/abc1.png"/>
+
+  <br/><br/>
+
+  Copyright (c) 2005-2008 Thomas Sawyer <br/><br/>
+
+  Brite & ProUtils were created by Thomas Sawyer (7rans).<br/>
+
+  Brite is released under the terms of the GPLv3 license.<br/>
+
+  <br/><br/>
+
+  THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR
+  IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  PURPOSE.
+</div>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2883355-2";
+urchinTracker();
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,45 @@
+/* -----------------------------------------------------------------
+
+  This is where you set your desired font size. The line-heights 
+  and vertical margins are automatically calculated from this. 
+  The percentage is of 16px (0.75 * 16px = 12px). 
+
+----------------------------------------------------------------- */
+
+body {
+    font-size: 80%;
+    font-family: sans-serif, Arial; 
+}
+
+h1,h2,h3,h4,h5,h6 { 
+    font-family: sans-serif, Arial; 
+    font-weight: bold;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    text-decoration: none;
+}
+
+h1 { font-size: 1.9em; line-height: 1;    margin: 0.50em 0; }
+h2 { font-size: 1.5em;                    margin: 0.75em 0; }
+h3 { font-size: 1.3em; line-height: 1;    margin: 1.00em 0; }
+h4 { font-size: 1.2em; line-height: 1.25; margin: 1.25em 0; }
+h5 { font-size: 1.0em; font-weight: bold; margin: 0 0 1.5em 0; }
+h6 { font-size: 1.0em; font-weight: bold; }
+
+p {
+  line-height: 1.6em; 
+}
+
+.header .title {
+  font-size: 150px; text-align: center; font-weight: bold;
+  line-height: 150px; letter-spacing: 10px; 
+}
+
+.menu { font-size: 12px; }
+
+.heading { font-size: 2em; }
+.heading .title { font-size: 1.3em; font-weight: bold; }
+.heading .date  { font-size: 0.7em; }
+
+.footer { font-size: 8px; font-weight: bold; }

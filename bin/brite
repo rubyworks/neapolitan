@@ -1,0 +1,3 @@
+#! /usr/bin/ruby
+require 'brite/command'
+Brite::Command.start

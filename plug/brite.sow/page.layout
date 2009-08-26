@@ -1,0 +1,101 @@
+---
+stencil: liquid
+---
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+
+  <title>Brite Sample</title>
+
+  <meta name="DESCRIPTION"
+        content="Brite is a K.I.S.S. website builder."/>
+
+  <link rel="icon" href="{{root}}assets/images/icon.jpg" type="image/x-icon" />
+
+  <link href="atom.xml" rel="alternate" title="blog.webrite.rubyforge.org" type="application/atom+xml" />
+
+  <!-- STYLESHEETS -->
+
+  <link href="{{root}}assets/styles/reset.css"  rel="stylesheet" type="text/css" />
+
+  <link href="{{root}}assets/styles/screen.css" rel="stylesheet" type="text/css" media="screen, projection" />
+  <link href="{{root}}assets/styles/print.css"  rel="stylesheet" type="text/css" media="print" />
+
+  <!--[if IE]>
+      <link href="{{root}}assets/styles/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <![endif]-->
+
+  <link href="{{root}}assets/styles/form.css"  rel="stylesheet" type="text/css" />
+  <link href="{{root}}assets/styles/font.css"  rel="stylesheet" type="text/css" />
+  <link href="{{root}}assets/styles/color.css" rel="stylesheet" type="text/css" />
+  <!-- <link href="{{root}}assets/styles/syntax.css"  rel="stylesheet" type="text/css" /> -->
+</head>
+
+</body>
+</html>
+
+<body>
+
+<div class="main">
+
+  <div class="header">
+    <div class="title">
+      Y O U
+    </div>
+    <div class="menu">
+      <ul>
+      <li><a href="{{root}}index.html">Home</a></li>
+      <li><a href="{{root}}about.html">About</a></li>
+      <li><a href="http://proutils.rubyforge.org/brite/">Brite</a></li>
+      <li><a href="http://proutils.rubforge.org/">ProUtils</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- <div id="drop_shadow"></div> -->
+
+  <br style="float: clear;"/>
+
+  <div id="content">
+    {{ content }}
+  </div>
+
+</div>
+
+<br style="clear: both;"/><br/><br/>
+
+<div class="footer">
+  <img src="assets/images/abc1.png"/>
+
+  <br/><br/>
+
+  Copyright (c) 2005-2008 Yser the Ab'user <br/><br/>
+
+  Brite & ProUtils were created by Thomas Sawyer (7rans).<br/>
+
+  Brite is released under the terms of the GPLv3 license.<br/>
+
+  <br/><br/>
+
+  THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR
+  IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  PURPOSE.
+</div>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2883355-2";
+urchinTracker();
+</script>
+
+</body>
+</html>
+
