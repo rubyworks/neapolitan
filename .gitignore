@@ -1,0 +1,10 @@
+.cache
+doc/qedoc
+doc/rdoc
+doc/ri
+doc/webri
+log
+pkg
+pack
+MANIFEST
+
