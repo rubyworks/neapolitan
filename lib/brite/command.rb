@@ -14,7 +14,7 @@ module Brite
       @argv ||= ARGV.dup
 
       @noharm = @argv.delete('--dryrun') || @argv.delete('--noharm')
-      @trace  = @argv.delete('--trace')
+      @debug  = @argv.delete('--debug')
 
       @argv.reject!{ |e| e =~ /^-/ }
 
@@ -27,7 +27,7 @@ module Brite
       begin
         site.build
       rescue => e
-        @trace ? raise(e) : puts(e.message)
+        @debug ? raise(e) : puts(e.message)
       end
     end
 
