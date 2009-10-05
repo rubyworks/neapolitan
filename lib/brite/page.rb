@@ -9,6 +9,7 @@ module Brite
 
     # Template type (rhtml or liquid)
     attr :stencil
+
     # Layout name (relative filename less extension)
     attr :layout
     attr :author
@@ -17,6 +18,7 @@ module Brite
     attr :tags
     attr :category
     attr :content
+    attr :extension
 
     def initialize(site, file)
       @site  = site
@@ -31,7 +33,12 @@ module Brite
 
     #
     def url
-      @url ||= name + '.html'
+      @url ||= name + extension
+    end
+
+    #
+    def extension
+      @extension ||= '.html'
     end
 
     #
@@ -66,7 +73,7 @@ module Brite
     def save(output=nil)
       output ||= Dir.pwd  # TODO
       text  = render
-      fname = file.chomp(File.extname(file)) + '.html'
+      fname = file.chomp(File.extname(file)) + extension
       if dryrun
         puts "[DRYRUN] write #{fname}"
       else
@@ -86,6 +93,7 @@ module Brite
 
   protected
 
+    # TODO: Should validate front matter before anything processing.
     #
     def render(inherit={})
       attributes = to_contextual_attributes
@@ -99,9 +107,10 @@ module Brite
       @content = output
 
       attributes = attributes.merge('content'=>output)
-
       if layout
-        output = site.lookup_layout(layout).render(attributes)
+        renout = site.lookup_layout(layout)
+        raise "No such layout -- #{layout}" unless renout
+        output = renout.render(attributes)
       end
 
       output
@@ -153,16 +162,43 @@ module Brite
 
     #
     def parse_header(head)
-      @stencil  = head['stencil'] || site.defaults.stencil
-      @layout   = head['layout']  || default_layout
-      @author   = head['author']  || 'Anonymous'
-      @title    = head['title']
-      @date     = head['date']
-      @tags     = head['tags']
-      @category = head['category']
+      @stencil   = head['stencil'] || site.defaults.stencil
+      @author    = head['author']  || 'Anonymous'
+      @title     = head['title']
+      @date      = head['date']
+      @category  = head['category']
+      @extension = head['extension']
+
+      self.tags   = head['tags']
+      self.layout = head['layout']
     end
 
-    # Default layout is differnt for pages vs. posts, so we
+    def layout=(layout)
+      if FalseClass === layout
+        @layout = nil
+      else
+        @layout = layout || default_layout
+      end
+    end
+
+    #
+    def tags=(entry)
+      return entry unless entry
+      case entry
+      when String, Symbol
+        entry = entry.to_s.strip
+        if entry.index(/[,;]/)
+          entry = entry.split(/[,;]/)
+        else
+          entry = entry.split(/\s+/)
+        end
+      else
+        entry = entry.to_a.flatten
+      end
+      @tags = entry.map{ |e| e.strip }
+    end
+
+    # Default layout is different for pages vs. posts, so we
     # use this method to differntiation them.
     def default_layout
       site.defaults.pagelayout

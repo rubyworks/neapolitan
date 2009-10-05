@@ -36,6 +36,22 @@ module Brite
       @posts   = []
     end
 
+    def tags
+      @tags ||= posts.map{ |p| p.tags }.flatten.uniq.sort
+    end
+
+    def posts_by_tag
+      @posts_by_tag ||= (
+        chart ||= Hash.new{|h,k|h[k]=[]}
+        posts.each do |post|
+          post.tags.each do |tag|
+            chart[tag] << post
+          end
+        end
+        chart
+      )
+    end
+
     def verbose?
       true
     end
@@ -101,8 +117,14 @@ module Brite
     end
 
     def to_h
+      pbt = {}
+      posts_by_tag.each do |tag, posts|
+        pbt[tag] = posts.map{ |p| p.to_h }
+      end
       {
-        'posts' => posts.map{ |p| p.to_h }
+        'posts' => posts.map{ |p| p.to_h },
+        'posts_by_tag' => pbt, #posts_by_tag, #.map{ |t, ps| [t, ps.map{|p|p.to_h}] }
+        'tags' => tags
       }
     end
 
@@ -113,4 +135,3 @@ module Brite
   end
 
 end
-
