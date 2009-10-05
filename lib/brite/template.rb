@@ -65,9 +65,9 @@ module Brite
 
     def coderay(input, format)
       require 'coderay'
-      format = format.split('.')[1] || :plaintext
+      format = format.split('.')[1] || :ruby #:plaintext
       tokens = CodeRay.scan(input, format.to_sym) #:ruby
-      tokens.html(:line_numbers => :inline, :wrap => :page)
+      tokens.div()
     end
 
     # Stencil Renderers
@@ -121,6 +121,7 @@ module Brite
     end
 
     def method_missing(s, *a)
+      s = s.to_s
       @attributes.key?(s) ? @attributes[s] : super
     end
   end
