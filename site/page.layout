@@ -59,9 +59,8 @@ stencil: liquid
       <ul>
       <li><a href="{{root}}rdoc/index.html">RDocs</a></li>
       <li><a href="{{root}}qedoc/index.html">QEDocs</a></li>
-      <li><a href="http://rubyforge.org/projects/proutils/">Rubyforge</a></li>
       <li><a href="http://github.com/proutils/brite/">GitHub</a></li>
-      <li><a href="http://groups.google.com/group/tigerops-community?hl=en">Mailinglist</a></li>
+      <li><a href="http://groups.google.com/group/proutils">GoogleGroup</a></li>
       </ul>
     </div>
   </div>
@@ -70,31 +69,31 @@ stencil: liquid
 
   <br style="float: clear;"/>
 
-  <div id="content">
+  <div class="content">
     {{ content }}
   </div>
 
-</div>
+  <br style="clear: both;"/><br/><br/>
 
-<br style="clear: both;"/><br/><br/>
+  <div class="footer">
+    <img src="assets/images/abc1.png"/>
 
-<div class="footer">
-  <img src="assets/images/abc1.png"/>
+    <br/><br/>
 
-  <br/><br/>
+    Copyright (c) 2005-2008 Thomas Sawyer <br/><br/>
 
-  Copyright (c) 2005-2008 Thomas Sawyer <br/><br/>
+    Brite & ProUtils were created by Thomas Sawyer (7rans).<br/>
 
-  Brite & ProUtils were created by Thomas Sawyer (7rans).<br/>
+    Brite is released under the terms of the GPLv3 license.<br/>
 
-  Brite is released under the terms of the GPLv3 license.<br/>
+    <br/><br/>
 
-  <br/><br/>
+    THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR
+    IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE.
+  </div>
 
-  THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR
-  IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-  PURPOSE.
 </div>
 
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
