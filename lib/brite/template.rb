@@ -22,6 +22,8 @@ module Brite
         rdiscount(text)
       when 'textile'
         redcloth(text)
+      when 'haml'
+        haml(text)
       when /^coderay/
         coderay(text, format)
       else # html
@@ -63,6 +65,10 @@ module Brite
       markup.convert(input, format)
     end
 
+    def haml(input)
+      Haml::Engine.new(input).render
+    end
+
     def coderay(input, format)
       require 'coderay'
       format = format.split('.')[1] || :ruby #:plaintext
@@ -87,7 +93,7 @@ module Brite
       result
     end
 
-    # TODO Load these only if used.
+    # TODO: Load engines only if used.
 
     begin ; require 'rubygems'  ; rescue LoadError ; end
     begin ; require 'erb'       ; rescue LoadError ; end
@@ -97,6 +103,12 @@ module Brite
     begin ; require 'liquid'    ; rescue LoadError ; end
 
     begin
+      require 'haml'
+      #Haml::Template.options[:format] = :html5
+    rescue LoadError
+    end
+
+    begin
       require 'rdoc/markup/simple_markup'
       require 'rdoc/markup/simple_markup/to_html'
     rescue LoadError
@@ -104,7 +116,8 @@ module Brite
 
   end
 
-  # Render Context
+  # = Clean Rendering Context
+  #
   class Context
     instance_methods(true).each{ |m| private m unless m =~ /^__/ }
 
