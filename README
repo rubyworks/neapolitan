@@ -1,17 +1,15 @@
 = Brite
 
-== The BrightLite of Website Tools
+(The BrightLite of Static Website Generators)
 
-* http://proutils.rubyforge.org
-* http://proutils.rubyforge.org/brite
+* http://proutils.github.copm/brite
+* http://github.com/proutils/brite
 
 
 == DESCRIPTION
 
-Brite is a static website/blog generation tool.
-It is very easy to use, and borrows best-of-breed
-ideas from a number of similar projects.
-
+Brite is an inovative static website/blog generation utility
+which is extremely easy to use as it is versitle.
 
 == FEATURES/ISSUES
 
@@ -20,24 +18,19 @@ ideas from a number of similar projects.
 * And Dyn-o-mite!
 
 
-== RELEASE NOTES
-
-Please see the HISTORY file.
-
-
 == SYNOPSIS
 
-Give me some time...
+For now please see the Brite website and API documentation.
 
 
 == HOW TO INSTALL
 
-You know the routine.
+You know the routine ;)
 
-  gem install brite
+  $ sudop gem install brite
 
 If you're old fashion and want to install to a site
-location, use Setup.rb (http://setup.rubyforge.org).
+location, see Setup.rb (http://protuils.github.com/setup).
 
 
 == COPYRIGHT/LICENSE
