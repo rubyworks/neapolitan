@@ -2,8 +2,8 @@
 
 (The BrightLite of Static Website Generators)
 
-* http://proutils.github.com/brite
-* http://github.com/proutils/brite
+* home: http://proutils.github.com/brite
+* source: http://github.com/proutils/brite
 
 
 == DESCRIPTION
@@ -37,6 +37,6 @@ location, see Setup.rb (http://protuils.github.com/setup).
 
 Brite is Copyright (c) 2009 Thomas Sawyer
 
-It is distributed under the terms of the GPL license.
+It is distributed under the terms of the MIT license.
 
 

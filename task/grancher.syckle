@@ -1,0 +1,7 @@
+grancher:
+  service: Grancher
+  sitemap:
+    site     : ~
+    doc/rdoc : rdoc
+  active: true
+
