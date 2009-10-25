@@ -1,0 +1,101 @@
+pre {
+  -moz-border-radius: 10px; border: 1px solid #ccc; padding: 10px 10px; color: yellow; background: #ff3600;
+  font-size: 12px;
+}
+
+/* menu */
+
+.menu {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* main */
+
+.main {
+  background: white;
+  color #ff3600;
+}
+
+.content {
+  padding: 0;
+}
+
+/* header */
+
+.header {
+  height: 240px;
+  position: relative;
+  border-top: 2px solid yellow;
+  border-bottom: 2px solid yellow;
+}
+
+.header .title {
+  padding-top: 10px;
+  text-align: left;
+}
+
+/* footer */
+
+.footer {
+  padding: 20px 0 40px 0;
+  font-size: 8px;
+  font-weight: bold; 
+  background: #ff3600;
+  color: white;
+  border-top: 1px solid yellow;
+}
+
+.page { margin: 0 auto; width: 700px; }
+
+
+/* --------- FONT ----------- */
+
+.header .title {
+  font-size: 150px; text-align: left; font-weight: bold;
+  line-height: 200px; letter-spacing: 10px; 
+}
+
+.menu { font-size: 14px; font-weight: bold; }
+
+.heading { font-size: 2em; }
+.heading .title { font-size: 1.3em; font-weight: bold; }
+.heading .date  { font-size: 0.7em; }
+
+/* --------- COLOR ----------- */
+
+a {
+  color: #ff3600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  color: #ff3600;
+  font-size: 14px;
+}
+
+h1,h2 {
+  color: #ff3600;
+}
+
+.header {
+  color: white;
+  background: #ff3600;
+}
+
+.menu { background: white; /* url(./images/bg.jpg) center repeat-x; } */
+.menu a { color: orange; }
+.menu a:hover { color: blue; }
+
+.heading .title {
+  color: #ff4455;
+}
+
+.heading .title:hover {
+  color: #2454ad;
+}
+
