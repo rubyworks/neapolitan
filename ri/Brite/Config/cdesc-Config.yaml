@@ -16,7 +16,8 @@ comment:
   body: Configuration
 constants: 
 - !ruby/object:RDoc::RI::Constant 
-  comment: 
+  comment: []
+
   name: DEFAULTS
   value: "{       :stencil    => 'rhtml',       #:format     => 'html',       :pagelayout => 'page',       :postlayout => 'post',       :maxchars   => 500,     }"
 full_name: Brite::Config
