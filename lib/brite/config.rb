@@ -5,6 +5,7 @@ module Brite
   # Configuration
   class Config
 
+    #
     DEFAULTS = {
       :stencil    => 'rhtml',
       #:format     => 'html',
