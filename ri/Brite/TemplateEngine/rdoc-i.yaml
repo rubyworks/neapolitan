@@ -1,0 +1,10 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Brite::TemplateEngine#rdoc
+is_singleton: false
+name: rdoc
+params: (input)
+visibility: public

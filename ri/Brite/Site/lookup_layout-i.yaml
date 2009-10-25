@@ -1,0 +1,10 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Brite::Site#lookup_layout
+is_singleton: false
+name: lookup_layout
+params: (name)
+visibility: public

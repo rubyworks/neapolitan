@@ -1,0 +1,14 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: "&quot;entia non sunt multiplicanda praeter necessitatem&quot;"
+- !ruby/struct:RDoc::Markup::Flow::VERB 
+  body: "                                      --Ockham's razor\n"
+full_name: Object#brite/config
+is_singleton: false
+name: brite/config
+params: ()
+visibility: public

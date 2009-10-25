@@ -1,0 +1,10 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Brite::PartCommand#parts
+is_singleton: false
+name: parts
+params: ()
+visibility: private

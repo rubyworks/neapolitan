@@ -1,0 +1,76 @@
+--- !ruby/object:RDoc::RI::ClassDescription 
+attributes: 
+- !ruby/object:RDoc::RI::Attribute 
+  comment: 
+  name: dryrun
+  rw: R
+- !ruby/object:RDoc::RI::Attribute 
+  comment: 
+  name: layouts
+  rw: R
+- !ruby/object:RDoc::RI::Attribute 
+  comment: 
+  - !ruby/struct:RDoc::Markup::Flow::P 
+    body: Location of site.
+  name: location
+  rw: R
+- !ruby/object:RDoc::RI::Attribute 
+  comment: 
+  name: output
+  rw: R
+- !ruby/object:RDoc::RI::Attribute 
+  comment: 
+  name: pages
+  rw: R
+- !ruby/object:RDoc::RI::Attribute 
+  comment: 
+  name: posts
+  rw: R
+- !ruby/object:RDoc::RI::Attribute 
+  comment: 
+  name: verbose
+  rw: R
+class_methods: 
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Site class
+- !ruby/struct:RDoc::Markup::Flow::RULE 
+  width: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Site class
+constants: []
+
+full_name: Brite::Site
+includes: []
+
+instance_methods: 
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: build
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: config
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: defaults
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: lookup_layout
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: posts_by_tag
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: render
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: render_pages
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: render_posts
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: sort_files
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: tags
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: to_h
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: to_liquid
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: verbose?
+name: Site
+superclass: Object

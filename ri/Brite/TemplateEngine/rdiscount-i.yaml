@@ -1,0 +1,10 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Brite::TemplateEngine#rdiscount
+is_singleton: false
+name: rdiscount
+params: (input)
+visibility: public

@@ -1,0 +1,11 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: []
+
+full_name: Brite::Page#tags=
+is_singleton: false
+name: tags=
+params: (entry)
+visibility: private

@@ -1,0 +1,11 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: []
+
+full_name: Brite::Command#start
+is_singleton: false
+name: start
+params: ()
+visibility: public

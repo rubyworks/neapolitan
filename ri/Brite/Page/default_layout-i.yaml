@@ -1,0 +1,12 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Default layout is different for pages vs. posts, so we use this method to differntiation them.
+full_name: Brite::Page#default_layout
+is_singleton: false
+name: default_layout
+params: ()
+visibility: private

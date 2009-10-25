@@ -1,0 +1,10 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Brite::Post#default_layout
+is_singleton: false
+name: default_layout
+params: ()
+visibility: public

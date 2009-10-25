@@ -1,0 +1,27 @@
+--- !ruby/object:RDoc::RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: new
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: start
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Webrite command line interface.
+- !ruby/struct:RDoc::Markup::Flow::RULE 
+  width: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Webrite command line interface.
+constants: []
+
+full_name: Brite::Command
+includes: []
+
+instance_methods: 
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: site
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: start
+name: Command
+superclass: Object

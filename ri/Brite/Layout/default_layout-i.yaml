@@ -1,0 +1,12 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Layouts have no default layout.
+full_name: Brite::Layout#default_layout
+is_singleton: false
+name: default_layout
+params: ()
+visibility: public
