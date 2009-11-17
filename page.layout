@@ -35,9 +35,11 @@ stencil: liquid
       <link href="{{root}}assets/styles/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
   <![endif]-->
 
-  <link href="{{root}}assets/styles/site.css"  rel="stylesheet" type="text/css" />
-  <!-- <link href="{{root}}assets/styles/syntax.css"  rel="stylesheet" type="text/css" /> -->
+  <link href="{{root}}assets/styles/tag.css"    rel="stylesheet" type="text/css" />
+  <link href="{{root}}assets/styles/id.css"     rel="stylesheet" type="text/css" />
+  <link href="{{root}}assets/styles/class.css"  rel="stylesheet" type="text/css" />
 
+  <!-- <link href="{{root}}assets/styles/syntax.css"  rel="stylesheet" type="text/css" /> -->
   <!-- <script src="js/rdocs.js" type="text/javascript"></script> -->
 </head>
 
@@ -46,23 +48,24 @@ stencil: liquid
 
 <body>
 
-<div class="menu">
+<div id="menu">
   <div class="page">
-    <a href="{{root}}qedoc/index.html">Demo</a> &nbsp;
-    <a href="{{root}}rdoc/index.html">API</a> &nbsp;
+    <!-- <a href="{{root}}qedoc/index.html">QEDocs</a> &nbsp; -->
+    <a href="{{root}}rdoc/index.html">Documentation</a> &nbsp;
+    <a href="http://wiki.github.com/proutils/brite">Wiki-Wiki</a> &nbsp;
     <a href="http://groups.google.com/group/proutils">Mailing List</a> &nbsp;
     <a href="http://github.com/proutils/brite/">Development</a> &nbsp;
   </div>
 </div>
 
-<div class="header">
+<div id="header">
   <div class="title page">
     <img src="{{root}}assets/images/suno.jpg" align="right" height="220px" />
     Brite
   </div>
 </div>
 
-<div class="main">
+<div id="main">
 <div class="page">
 
   <!-- <div id="drop_shadow"></div> -->
@@ -79,7 +82,7 @@ stencil: liquid
 </div>
 
 
-<div class="footer">
+<div id="footer">
 <div class="page">
   <br/>
 

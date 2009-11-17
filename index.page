@@ -7,44 +7,45 @@ author: trans
 
 = The "Brite" Idea
 
-Brite is a static website/blog generation tool. It is very
-easy to use, borrows some best-of-breed ideas from similar
-projects, yet is very innovate in it's own right.
-
-Note that this is early release. There are still a fair number
-of issues to address to bring Brite up to full-speed.
+Brite is a static website/blog generator. It is very easy to use,
+yet versitle. It's design is both innovative and wisly borrows
+best-of-breed ideas from similar projects.
 
 = Overview
 
-You will likely want to install using RubyGems.
+You will likely want to install Brite via RubyGems.
 
   $ gem install brite
 
 If you're old fashion and want to install to a site
-location, please use Setup.rb (http://setup.rubyforge.org).
+location, please see Setup.rb (http://proutils.github.com/setup).
 
-The best way to get started is to copy the example site
-located in plug/brite.sow/ directory of the Brite project.
-For and easier method you can install Sow(see http://proutils.rubyforge.org)
+A good way to get started is to look at the files for this website or
+at the Sow template for a brite project.
+
+* http://github.com/proutils/brite/tree/master/site/
+* http://github.com/proutils/brite/tree/master/plug/sow/seeds/brite/template/
+
+To make it even easier you can install Sow (http://proutils.github.com/sow)
 and then use:
 
   $ sow brite <site-dir>
 
-In either case you will notice these files:
+In either case you will see somthing along the lines of these files:
 
-  2009/09/sample.post
+  2010/01/sample.post
   assets/images/logo.jpg
+  assets/styles/class.css
+  assets/styles/id.css
   assets/styles/reset.css
-  assets/styles/font.css
-  assets/styles/color.css
-  assets/styles/form.css
+  assets/styles/tag.css
   page.layout
   post.layout
   index.page
 
-Look them over carefully, and I think you will quickly see how the
-system works. Try editing a few of the files. Then, when you are ready,
-from the toplevel of the directory, type:
+Look them over carefully, and I think you will quickly see how the system works.
+Try editing your copy of the files. Then, when you are ready, from the toplevel
+of the directory, type:
 
   $ brite
 
