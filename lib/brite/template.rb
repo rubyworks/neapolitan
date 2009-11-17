@@ -1,3 +1,5 @@
+require 'tilt'
+
 module Brite
 
   # Stencil controls rendering to a variety
@@ -13,61 +15,61 @@ module Brite
       text
     end
 
-    #
-    def render_format(format, text)
-      case format
-      when 'rdoc'
-        rdoc(text)
-      when 'markdown'
-        rdiscount(text)
-      when 'textile'
-        redcloth(text)
-      when 'haml'
-        haml(text)
-      when /^coderay/
-        coderay(text, format)
-      else # html
-        text
-      end
-    end
+    #def render_format(format, text)
+    #  case format
+    #  when 'rdoc'
+    #    rdoc(text)
+    #  when 'markdown'
+    #    rdiscount(text)
+    #  when 'textile'
+    #    redcloth(text)
+    #  when 'haml'
+    #    haml(text)
+    #  else # html
+    #    text
+    #  end
+    #end
 
-    #
-    def render_stencil(stencil, text, attributes)
-      case stencil
-      when 'rhtml'
-        erb(text, attributes)
-      when 'liquid'
-        liquid(text, attributes)
-      else
-        text
-      end
-    end
-
-    # Format Renderers
+    # Format Rendering
     # ----------------
 
     #
-    def redcloth(input)
-      RedCloth.new(input).to_html
+    def render_format(format, text)
+      case format
+      when /^coderay/
+        coderay(text, format)
+      when 'rdoc'  # TODO: Remove when next version of tilt is released.
+        rdoc(text)
+      else
+        if engine = Tilt[format]
+          engine.new{text}.render #(context)
+        else
+          text
+        end
+      end
     end
 
-    def bluecloth(input)
-      BlueCloth.new(input).to_html
-    end
+    #
+    #def redcloth(input)
+    #  RedCloth.new(input).to_html
+    #end
 
-    def rdiscount(input)
-      RDiscount.new(input).to_html
-    end
+    #def bluecloth(input)
+    #  BlueCloth.new(input).to_html
+    #end
+
+    #def rdiscount(input)
+    #  RDiscount.new(input).to_html
+    #end
 
     def rdoc(input)
-      markup = SM::SimpleMarkup.new
-      format = SM::ToHtml.new
-      markup.convert(input, format)
+      markup = RDoc::Markup::ToHtml.new
+      markup.convert(input)
     end
 
-    def haml(input)
-      Haml::Engine.new(input).render
-    end
+    #def haml(input)
+    #  Haml::Engine.new(input).render
+    #end
 
     def coderay(input, format)
       require 'coderay'
@@ -76,22 +78,46 @@ module Brite
       tokens.div()
     end
 
-    # Stencil Renderers
-    #------------------
+    # Stencil Rendering
+    # -----------------
 
     #
-    def erb(input, attributes)
-      template = ERB.new(input)
-      context  = Context.new(attributes)
-      result   = template.result(context.__binding__)
-      result
+    #def render_stencil(stencil, text, attributes)
+    #  case stencil
+    #  when 'rhtml'
+    #    erb(text, attributes)
+    #  when 'liquid'
+    #    liquid(text, attributes)
+    #  else
+    #    text
+    #  end
+    #end
+
+    #
+    def render_stencil(stencil, text, attributes)
+      if engine = Tilt[stencil]
+        engine.new{text}.render(nil, attributes)
+      else
+        text
+      end
     end
 
-    def liquid(input, attributes)
-      template = Liquid::Template.parse(input)
-      result   = template.render(attributes) #'products' => Product.find(:all) )
-      result
-    end
+    #
+    #def erb(input, attributes)
+    #  template = ERB.new(input)
+    #  context  = TemplateContext.new(attributes)
+    #  result   = template.result(context.__binding__)
+    #  result
+    #end
+
+    #def liquid(input, attributes)
+    #  template = Liquid::Template.parse(input)
+    #  result   = template.render(attributes, :filters => [TemplateFilters])
+    #  result
+    #end
+
+    # Require Dependencies
+    # --------------------
 
     # TODO: Load engines only if used.
 
@@ -100,7 +126,12 @@ module Brite
     begin ; require 'redcloth'  ; rescue LoadError ; end
     begin ; require 'bluecloth' ; rescue LoadError ; end
     begin ; require 'rdiscount' ; rescue LoadError ; end
-    begin ; require 'liquid'    ; rescue LoadError ; end
+
+    begin
+      require 'liquid'
+      #Liquid::Template.register_filter(TemplateFilters)
+    rescue LoadError
+    end
 
     begin
       require 'haml'
@@ -109,16 +140,57 @@ module Brite
     end
 
     begin
-      require 'rdoc/markup/simple_markup'
-      require 'rdoc/markup/simple_markup/to_html'
+      require 'rdoc/markup'
+      require 'rdoc/markup/to_html'
     rescue LoadError
     end
 
   end
 
+  #
+  #
+  #
+
+  #module TemplateFilters
+
+    # NOTE: HTML truncate did not work well.
+
+    # # HTML comment regular expression
+    # REM_RE = %r{<\!--(.*?)-->}
+    #
+    # # HTML tag regular expression
+    # TAG_RE = %r{</?\w+((\s+\w+(\s*=\s*(?:"(.|\n)*?"|'(.|\n)*?'|[^'">\s]+))?)+\s*|\s*)/?>}    #'
+    #
+    # #
+    # def truncate_html(html, limit)
+    #   return html unless limit
+    #
+    #   mask = html.gsub(REM_RE){ |m| "\0" * m.size }
+    #   mask = mask.gsub(TAG_RE){ |m| "\0" * m.size }
+    #
+    #   i, x = 0, 0
+    #
+    #   while i < mask.size && x < limit
+    #     x += 1 if mask[i] != "\0"
+    #     i += 1
+    #   end
+    #
+    #   while x > 0 && mask[x,1] == "\0"
+    #     x -= 1
+    #   end
+    #
+    #   return html[0..x]
+    # end
+
+  #end
+
   # = Clean Rendering Context
   #
-  class Context
+  # The TemplateContext is is used by ERB.
+
+  class TemplateContext
+    #include TemplateFilters
+
     instance_methods(true).each{ |m| private m unless m =~ /^__/ }
 
     def initialize(attributes={})

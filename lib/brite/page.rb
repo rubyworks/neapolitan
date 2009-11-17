@@ -12,14 +12,29 @@ module Brite
 
     # Layout name (relative filename less extension)
     attr :layout
+
+    # Author
     attr :author
+
+    # Title of page/post
     attr :title
+
+    # Publish date
     attr :date
+
+    # Tags (labels)
     attr :tags
+
+    # Category ("a glorified tag")
     attr :category
+
+    # rendered output text
     attr :content
+
+    # output extension (defualt is 'html')
     attr :extension
 
+    #
     def initialize(site, file)
       @site  = site
       @file  = file
