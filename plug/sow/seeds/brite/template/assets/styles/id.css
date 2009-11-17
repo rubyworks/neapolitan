@@ -1,43 +1,29 @@
-body {
-  margin: 0;
-  padding: 0;
-}
+/* ID STYLES */
 
-a { 
-  text-decoration: none;
-}
-
-h1, h2 {
-  padding-top: 30px;
-}
-
-h1:first-child {
-  padding-top: 5px;
-}
-
+/* LAYOUT */
 
 /* main */
 
-.main {
+#main {
   width: 600px;
   margin: 0 auto;
 }
 
 /* header */
 
-.header {
+#header {
   height: 210px;
   background: url(../images/bg.jpg) center repeat-x;
   position: relative;
 }
 
-.header .title {
+#header .title {
   margin-bottom: 20px;
 }
 
 /* footer */
 
-.footer {
+#footer {
   width: 560px;
   padding: 20px;
   margin: 0 auto;
@@ -47,18 +33,18 @@ h1:first-child {
 
 /* menu */
 
-.menu {
+#menu {
   width: 100%;
   height: 20px;
   opacity: 0.9;
 }
 
-.menu ul {
+#menu ul {
   list-style: none;
   margin: 0 0 0 50px;
 }
 
-.menu li {
+#menu li {
   float: left;
   line-height: 20px;
   text-align: center;
@@ -66,4 +52,34 @@ h1:first-child {
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }
+
+
+/* FONT */
+
+#header .title {
+  font-size: 150px; text-align: center; font-weight: bold;
+  line-height: 150px; letter-spacing: 10px; 
+}
+
+#menu { font-size: 12px; font-weight: bold; }
+
+.footer { font-size: 8px; font-weight: bold; }
+
+
+/* COLOR */
+
+
+#header {
+  color: white;
+}
+
+#menu {
+  background: white;
+}
+
+#menu li:hover {
+  background: #ccc;
+}
+
+#footer { color: white; }
 
