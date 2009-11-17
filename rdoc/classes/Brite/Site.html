@@ -73,8 +73,7 @@
         <h3 class="section-header">Parent</h3>
         <ul>
           
-          <!-- why was this class="link" ? -->
-          <li class="class"><a href="../Object.html">Object</a></li>
+          <li class="class">Object</li>
           
         </ul>
       </div>
@@ -91,27 +90,27 @@
           
             
             <li class="singleton">
-              <a href="#M000011">::new</a>
+              <a href="#M000010">::new</a>
             </li>
           
             
             <li class="method">
-              <a href="#M000015">#build</a>
+              <a href="#M000020">#build</a>
             </li>
           
             
             <li class="method">
-              <a href="#M000027">#config</a>
+              <a href="#M000030">#config</a>
             </li>
           
             
             <li class="method">
-              <a href="#M000029">#defaults</a>
+              <a href="#M000031">#defaults</a>
             </li>
           
             
             <li class="method">
-              <a href="#M000016">#lookup_layout</a>
+              <a href="#M000022">#lookup_layout</a>
             </li>
           
             
@@ -121,22 +120,22 @@
           
             
             <li class="method">
-              <a href="#M000022">#render</a>
+              <a href="#M000026">#render</a>
             </li>
           
             
             <li class="method">
-              <a href="#M000023">#render_pages</a>
+              <a href="#M000028">#render_pages</a>
             </li>
           
             
             <li class="method">
-              <a href="#M000026">#render_posts</a>
+              <a href="#M000029">#render_posts</a>
             </li>
           
             
             <li class="method">
-              <a href="#M000017">#sort_files</a>
+              <a href="#M000023">#sort_files</a>
             </li>
           
             
@@ -146,17 +145,17 @@
           
             
             <li class="method">
-              <a href="#M000030">#to_h</a>
+              <a href="#M000032">#to_h</a>
             </li>
           
             
             <li class="method">
-              <a href="#M000031">#to_liquid</a>
+              <a href="#M000037">#to_liquid</a>
             </li>
           
             
             <li class="method">
-              <a href="#M000014">#verbose?</a>
+              <a href="#M000019">#verbose?</a>
             </li>
           
         </ul>
@@ -221,8 +220,6 @@
           <li class="class"><a href="../../classes/Brite/TemplateContext.html">Brite::TemplateContext</a></li>
         
           <li class="module"><a href="../../classes/Brite/TemplateEngine.html">Brite::TemplateEngine</a></li>
-        
-          <li class="class"><a href="../../classes/Object.html">Object</a></li>
         
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -378,7 +375,7 @@ Location of site.
 
     
       <div id="new-method" class="method-detail ">
-        <a name="M000011"></a>
+        <a name="M000010"></a>
 
         <div class="method-heading">
         
@@ -397,7 +394,7 @@ Location of site.
           <div class="method-source-code"
             id="new-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/brite/site.rb, line 29</span>
+<span class="ruby-comment cmt"># File lib/brite/site.rb, line 24</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span>={})
       <span class="ruby-ivar">@location</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:location</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>
       <span class="ruby-ivar">@output</span>   = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:output</span>]   <span class="ruby-operator">||</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>
@@ -422,7 +419,7 @@ Location of site.
 
     
       <div id="build-method" class="method-detail ">
-        <a name="M000015"></a>
+        <a name="M000020"></a>
 
         <div class="method-heading">
         
@@ -441,7 +438,7 @@ Location of site.
           <div class="method-source-code"
             id="build-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/brite/site.rb, line 59</span>
+<span class="ruby-comment cmt"># File lib/brite/site.rb, line 54</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">build</span>
       <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-identifier">location</span>) <span class="ruby-keyword kw">do</span>
         <span class="ruby-identifier">sort_files</span>
@@ -463,7 +460,7 @@ Location of site.
 
     
       <div id="config-method" class="method-detail ">
-        <a name="M000027"></a>
+        <a name="M000030"></a>
 
         <div class="method-heading">
         
@@ -482,7 +479,7 @@ Location of site.
           <div class="method-source-code"
             id="config-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/brite/site.rb, line 111</span>
+<span class="ruby-comment cmt"># File lib/brite/site.rb, line 106</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">config</span>
       <span class="ruby-ivar">@config</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Config</span>.<span class="ruby-identifier">new</span>
     <span class="ruby-keyword kw">end</span></pre>
@@ -495,7 +492,7 @@ Location of site.
 
     
       <div id="defaults-method" class="method-detail ">
-        <a name="M000029"></a>
+        <a name="M000031"></a>
 
         <div class="method-heading">
         
@@ -514,7 +511,7 @@ Location of site.
           <div class="method-source-code"
             id="defaults-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/brite/site.rb, line 115</span>
+<span class="ruby-comment cmt"># File lib/brite/site.rb, line 110</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">defaults</span>
       <span class="ruby-identifier">config</span>.<span class="ruby-identifier">defaults</span>
     <span class="ruby-keyword kw">end</span></pre>
@@ -527,7 +524,7 @@ Location of site.
 
     
       <div id="lookup-layout-method" class="method-detail ">
-        <a name="M000016"></a>
+        <a name="M000022"></a>
 
         <div class="method-heading">
         
@@ -546,7 +543,7 @@ Location of site.
           <div class="method-source-code"
             id="lookup-layout-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/brite/site.rb, line 72</span>
+<span class="ruby-comment cmt"># File lib/brite/site.rb, line 67</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">lookup_layout</span>(<span class="ruby-identifier">name</span>)
       <span class="ruby-identifier">layouts</span>.<span class="ruby-identifier">find</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">l</span>.<span class="ruby-identifier">name</span> }
     <span class="ruby-keyword kw">end</span></pre>
@@ -578,7 +575,7 @@ Location of site.
           <div class="method-source-code"
             id="posts-by-tag-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/brite/site.rb, line 43</span>
+<span class="ruby-comment cmt"># File lib/brite/site.rb, line 38</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">posts_by_tag</span>
       <span class="ruby-ivar">@posts_by_tag</span> <span class="ruby-operator">||=</span> (
         <span class="ruby-identifier">chart</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">h</span>,<span class="ruby-identifier">k</span><span class="ruby-operator">|</span><span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>]=[]}
@@ -599,7 +596,7 @@ Location of site.
 
     
       <div id="render-method" class="method-detail ">
-        <a name="M000022"></a>
+        <a name="M000026"></a>
 
         <div class="method-heading">
         
@@ -618,7 +615,7 @@ Location of site.
           <div class="method-source-code"
             id="render-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/brite/site.rb, line 94</span>
+<span class="ruby-comment cmt"># File lib/brite/site.rb, line 89</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">render</span>
       <span class="ruby-identifier">render_posts</span>  <span class="ruby-comment cmt"># renger posts first, so pages can use them</span>
       <span class="ruby-identifier">render_pages</span>
@@ -632,7 +629,7 @@ Location of site.
 
     
       <div id="render-pages-method" class="method-detail ">
-        <a name="M000023"></a>
+        <a name="M000028"></a>
 
         <div class="method-heading">
         
@@ -651,7 +648,7 @@ Location of site.
           <div class="method-source-code"
             id="render-pages-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/brite/site.rb, line 99</span>
+<span class="ruby-comment cmt"># File lib/brite/site.rb, line 94</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">render_pages</span>
       <span class="ruby-identifier">pages</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">page</span><span class="ruby-operator">|</span>
         <span class="ruby-identifier">page</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">output</span>)
@@ -666,7 +663,7 @@ Location of site.
 
     
       <div id="render-posts-method" class="method-detail ">
-        <a name="M000026"></a>
+        <a name="M000029"></a>
 
         <div class="method-heading">
         
@@ -685,7 +682,7 @@ Location of site.
           <div class="method-source-code"
             id="render-posts-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/brite/site.rb, line 105</span>
+<span class="ruby-comment cmt"># File lib/brite/site.rb, line 100</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">render_posts</span>
       <span class="ruby-identifier">posts</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">post</span><span class="ruby-operator">|</span>
         <span class="ruby-identifier">post</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">output</span>)
@@ -700,7 +697,7 @@ Location of site.
 
     
       <div id="sort-files-method" class="method-detail ">
-        <a name="M000017"></a>
+        <a name="M000023"></a>
 
         <div class="method-heading">
         
@@ -719,7 +716,7 @@ Location of site.
           <div class="method-source-code"
             id="sort-files-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/brite/site.rb, line 76</span>
+<span class="ruby-comment cmt"># File lib/brite/site.rb, line 71</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sort_files</span>
       <span class="ruby-identifier">files</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-value str">'**/*'</span>]
       <span class="ruby-identifier">files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
@@ -765,7 +762,7 @@ Location of site.
           <div class="method-source-code"
             id="tags-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/brite/site.rb, line 39</span>
+<span class="ruby-comment cmt"># File lib/brite/site.rb, line 34</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tags</span>
       <span class="ruby-ivar">@tags</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">posts</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">tags</span> }.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">sort</span>
     <span class="ruby-keyword kw">end</span></pre>
@@ -778,7 +775,7 @@ Location of site.
 
     
       <div id="to-h-method" class="method-detail ">
-        <a name="M000030"></a>
+        <a name="M000032"></a>
 
         <div class="method-heading">
         
@@ -797,7 +794,7 @@ Location of site.
           <div class="method-source-code"
             id="to-h-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/brite/site.rb, line 119</span>
+<span class="ruby-comment cmt"># File lib/brite/site.rb, line 114</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_h</span>
       <span class="ruby-identifier">pbt</span> = {}
       <span class="ruby-identifier">posts_by_tag</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span>, <span class="ruby-identifier">posts</span><span class="ruby-operator">|</span>
@@ -818,7 +815,7 @@ Location of site.
 
     
       <div id="to-liquid-method" class="method-detail ">
-        <a name="M000031"></a>
+        <a name="M000037"></a>
 
         <div class="method-heading">
         
@@ -837,7 +834,7 @@ Location of site.
           <div class="method-source-code"
             id="to-liquid-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/brite/site.rb, line 131</span>
+<span class="ruby-comment cmt"># File lib/brite/site.rb, line 126</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_liquid</span>
       <span class="ruby-identifier">to_h</span>
     <span class="ruby-keyword kw">end</span></pre>
@@ -850,7 +847,7 @@ Location of site.
 
     
       <div id="verbose--method" class="method-detail ">
-        <a name="M000014"></a>
+        <a name="M000019"></a>
 
         <div class="method-heading">
         
@@ -869,7 +866,7 @@ Location of site.
           <div class="method-source-code"
             id="verbose--source">
 <pre>
-<span class="ruby-comment cmt"># File lib/brite/site.rb, line 55</span>
+<span class="ruby-comment cmt"># File lib/brite/site.rb, line 50</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">verbose?</span>
       <span class="ruby-keyword kw">true</span>
     <span class="ruby-keyword kw">end</span></pre>
