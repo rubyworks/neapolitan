@@ -1,8 +1,3 @@
-##
-#  "entia non sunt multiplicanda praeter necessitatem"
-#                                        --Ockham's razor
-##
-
 require 'brite/config'
 require 'brite/page'
 require 'brite/post'
