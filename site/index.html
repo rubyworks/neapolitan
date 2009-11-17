@@ -29,9 +29,11 @@
       <link href="assets/styles/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
   <![endif]-->
 
-  <link href="assets/styles/site.css"  rel="stylesheet" type="text/css" />
-  <!-- <link href="assets/styles/syntax.css"  rel="stylesheet" type="text/css" /> -->
+  <link href="assets/styles/tag.css"    rel="stylesheet" type="text/css" />
+  <link href="assets/styles/id.css"     rel="stylesheet" type="text/css" />
+  <link href="assets/styles/class.css"  rel="stylesheet" type="text/css" />
 
+  <!-- <link href="assets/styles/syntax.css"  rel="stylesheet" type="text/css" /> -->
   <!-- <script src="js/rdocs.js" type="text/javascript"></script> -->
 </head>
 
@@ -40,23 +42,23 @@
 
 <body>
 
-<div class="menu">
+<div id="menu">
   <div class="page">
-    <a href="qedoc/index.html">Demo</a> &nbsp;
-    <a href="rdoc/index.html">API</a> &nbsp;
+    <!-- <a href="qedoc/index.html">QEDocs</a> &nbsp; -->
+    <a href="rdoc/index.html">Documentation</a> &nbsp;
     <a href="http://groups.google.com/group/proutils">Mailing List</a> &nbsp;
     <a href="http://github.com/proutils/brite/">Development</a> &nbsp;
   </div>
 </div>
 
-<div class="header">
+<div id="header">
   <div class="title page">
     <img src="assets/images/suno.jpg" align="right" height="220px" />
     Brite
   </div>
 </div>
 
-<div class="main">
+<div id="main">
 <div class="page">
 
   <!-- <div id="drop_shadow"></div> -->
@@ -64,53 +66,64 @@
   <br style="float: clear;"/>
 
   <div class="content">
-    <h1>The &quot;Brite&quot; Idea</h1>
+    <h1>The &#8220;Brite&#8221; Idea</h1>
 <p>
-Brite is a static website/blog generation tool. It is very easy to use,
-borrows some best-of-breed ideas from similar projects, yet is very
-innovate in it&#8217;s own right.
-</p>
-<p>
-Note that this is early release. There are still a fair number of issues to
-address to bring Brite up to full-speed.
+Brite is a static website/blog generator. It is very easy to use, yet
+versitle. It&#8217;s design is both innovative and wisly borrows
+best-of-breed ideas from similar projects.
 </p>
 <h1>Overview</h1>
 <p>
-You will likely want to install using RubyGems.
+You will likely want to install Brite via RubyGems.
 </p>
 <pre>
   $ gem install brite
 </pre>
 <p>
 If you&#8217;re old fashion and want to install to a site location, please
-use Setup.rb (http://setup.rubyforge.org).
+see Setup.rb (<a
+href="http://proutils.github.com/setup">proutils.github.com/setup</a>).
 </p>
 <p>
-The best way to get started is to copy the example site located in
-plug/brite.sow/ directory of the Brite project. For and easier method you
-can install Sow(see http://proutils.rubyforge.org) and then use:
+A good way to get started is to look at the files for this website or at
+the Sow template for a brite project.
+</p>
+<ul>
+<li><a
+href="http://github.com/proutils/brite/tree/master/site">github.com/proutils/brite/tree/master/site</a>/
+
+</li>
+<li><a
+href="http://github.com/proutils/brite/tree/master/plug/sow/seeds/brite/template">github.com/proutils/brite/tree/master/plug/sow/seeds/brite/template</a>/
+
+</li>
+</ul>
+<p>
+To make it even easier you can install Sow (<a
+href="http://proutils.github.com/sow">proutils.github.com/sow</a>) and then
+use:
 </p>
 <pre>
   $ sow brite &lt;site-dir&gt;
 </pre>
 <p>
-In either case you will notice these files:
+In either case you will see somthing along the lines of these files:
 </p>
 <pre>
-  2009/09/sample.post
+  2010/01/sample.post
   assets/images/logo.jpg
+  assets/styles/class.css
+  assets/styles/id.css
   assets/styles/reset.css
-  assets/styles/font.css
-  assets/styles/color.css
-  assets/styles/form.css
+  assets/styles/tag.css
   page.layout
   post.layout
   index.page
 </pre>
 <p>
 Look them over carefully, and I think you will quickly see how the system
-works. Try editing a few of the files. Then, when you are ready, from the
-toplevel of the directory, type:
+works. Try editing your copy of the files. Then, when you are ready, from
+the toplevel of the directory, type:
 </p>
 <pre>
   $ brite
@@ -140,7 +153,7 @@ It is distributed under the terms of the GPL license.
 </div>
 
 
-<div class="footer">
+<div id="footer">
 <div class="page">
   <br/>
 

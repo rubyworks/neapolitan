@@ -20,18 +20,20 @@ You will likely want to install Brite via RubyGems.
 If you're old fashion and want to install to a site
 location, please see Setup.rb (http://proutils.github.com/setup).
 
-A good way to get started is to look at the files for this website
-(http://github.com/proutils/brite) or at the Sow template located
-<tt>plug/sow/seeds/brite/</tt> directory of the Brite project. 
+A good way to get started is to look at the files for this website or
+at the Sow template for a brite project.
+
+* http://github.com/proutils/brite/tree/master/site/
+* http://github.com/proutils/brite/tree/master/plug/sow/seeds/brite/template/
 
 To make it even easier you can install Sow (http://proutils.github.com/sow)
 and then use:
 
   $ sow brite <site-dir>
 
-In either case you will notice these files:
+In either case you will see somthing along the lines of these files:
 
-  2009/09/sample.post
+  2010/01/sample.post
   assets/images/logo.jpg
   assets/styles/class.css
   assets/styles/id.css

@@ -1,0 +1,29 @@
+/* TAG STYLES */
+
+/* LAYOUT */
+
+pre {
+  -moz-border-radius: 10px; border: 1px solid #ccc; padding: 10px 10px; color: yellow; background: #ff3600;
+  font-family: courier, monospace; font-size: 13px; font-weight: bold;
+}
+
+
+/* COLOR */
+
+a {
+  color: #ff3600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  color: #555;
+  font-size: 14px;
+}
+
+h1,h2 {
+  color: #ff3600;
+}
+
