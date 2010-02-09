@@ -2,8 +2,8 @@ module Brite
 
   # A Part is the section of a page. Pages can be segmented into
   # parts using the '--- FORMAT' notation.
-  #
   class Part
+
     # Markup format (html, rdoc, markdown, textile)
     attr :format
 
@@ -17,14 +17,15 @@ module Brite
     end
 
     #
-    def render(type, attributes)
-      template_engine.render(type, format, text, attributes)
+    def render(type, attributes, &output)
+      template_engine.render(type, format, text, attributes, &output)
     end
 
     #
     def template_engine
       TemplateEngine
     end
+
   end
 
 end

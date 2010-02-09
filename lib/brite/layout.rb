@@ -9,18 +9,17 @@ module Brite
     #end
 
     #
-    def render(attributes={})
+    def render(attributes={}, &content)
       #attributes = to_contextual_attributes
       #attributes['content'] = content if content
 
-      output = parts.map{ |part| part.render(stencil, attributes) }.join("\n")
+      output = parts.map{ |part| part.render(stencil, attributes, &content) }.join("\n")
 
       #@content = output
-
-      attributes = attributes.merge('content'=>output)
+      #attributes = attributes.merge('content'=>output)
 
       if layout
-        output = site.lookup_layout(layout).render(attributes)
+        output = site.lookup_layout(layout).render(attributes){ output }
       end
 
       output

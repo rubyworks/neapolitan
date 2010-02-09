@@ -9,9 +9,9 @@ module Brite
     extend self
 
     #
-    def render(stencil, format, text, attributes)
+    def render(stencil, format, text, attributes, &content)
       text = render_format(format, text)
-      text = render_stencil(stencil, text, attributes)
+      text = render_stencil(stencil, text, attributes, &content)
       text
     end
 
@@ -94,9 +94,9 @@ module Brite
     #end
 
     #
-    def render_stencil(stencil, text, attributes)
+    def render_stencil(stencil, text, attributes, &content)
       if engine = Tilt[stencil]
-        engine.new{text}.render(nil, attributes)
+        engine.new{text}.render(nil, attributes, &content)
       else
         text
       end
