@@ -10,16 +10,27 @@ module Brite
       new.start
     end
 
-    def initialize(argv=nil)
-      @argv ||= ARGV.dup
-
-      @noharm = @argv.delete('--dryrun') || @argv.delete('--noharm')
-      @debug  = @argv.delete('--debug')
-
-      @argv.reject!{ |e| e =~ /^-/ }
-
-      @location = @argv.shift || '.'
+    def initialize(*argv)
+      parser.parse!(argv.dup)
+      @location = argv.shift || '.'
       #@output = @argv.shift
+    end
+
+    def parser
+      OptionParser.new do |opt|
+        opt.on("--trace", "show extra operational information") do
+          @trace = true
+        end
+
+        opt.on("--dryrun", "-n", "don't actually write to disk") do
+          @noharm = true
+        end
+
+        opt.on("--debug", "run in debug mode") do
+          $DEBUG   = true
+          $VERBOSE = true
+        end
+      end
     end
 
     #
@@ -27,7 +38,7 @@ module Brite
       begin
         site.build
       rescue => e
-        @debug ? raise(e) : puts(e.message)
+        $DEBUG ? raise(e) : puts(e.message)
       end
     end
 

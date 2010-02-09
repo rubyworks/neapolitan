@@ -19,12 +19,13 @@ module Brite
     attr :posts
 
     attr :dryrun
-    attr :verbose
+    attr :trace
 
     def initialize(options={})
       @location = options[:location] || Dir.pwd
       @output   = options[:output]   || Dir.pwd
       @dryrun   = options[:dryrun]
+      @trace    = options[:trace]
 
       @layouts = []
       @pages   = []
@@ -47,20 +48,28 @@ module Brite
       )
     end
 
-    def verbose?
-      true
+    #
+    def trace?
+      @trace
     end
 
+    # DEPRECATE: replaced by trace?
+    def verbose?
+      @trace
+    end
+
+    #
     def build
       Dir.chdir(location) do
         sort_files
-        if verbose?
+        if trace?
           puts "Layouts: " + layouts.join(", ")
           puts "Pages:   " + pages.join(", ")
           puts "Posts:   " + posts.join(", ")
           puts
         end
         render
+        puts "#{pages.size + posts.size} Files: #{pages.size} Pages #{posts.size} Posts"
       end
     end
 
