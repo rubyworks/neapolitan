@@ -31,6 +31,9 @@ module Brite
     # rendered output text
     attr :content
 
+    # Rendered summary. This is the rendering of the first part.
+    attr :summary
+
     # output extension (defualt is 'html')
     attr :extension
 
@@ -80,6 +83,7 @@ module Brite
         'date'     => date,
         'tags'     => tags,
         'category' => category,
+        'summary'  => summary,
         'content'  => content
       }
     end
@@ -108,8 +112,11 @@ module Brite
 
   protected
 
-    # TODO: Should validate front matter before anything processing.
+    #--
+    # TODO: Should validate front matter before any processing.
     #
+    # TODO: Improve this code in general, what's up with output vs. content?
+    #++
     def render(inherit={})
       attributes = to_contextual_attributes
 
@@ -117,15 +124,20 @@ module Brite
 
       #attributes['content'] = content if content
 
-      output = parts.map{ |part| part.render(stencil, attributes) }.join("\n")
+      output = parts.map{ |part| part.render(stencil, attributes) }
+
+      @summary = output.first
+
+      output = output.join("\n")
 
       @content = output
 
-      attributes = attributes.merge('content'=>output)
+      #attributes = attributes.merge('content'=>output)
+
       if layout
         renout = site.lookup_layout(layout)
         raise "No such layout -- #{layout}" unless renout
-        output = renout.render(attributes)
+        output = renout.render(attributes){ output }
       end
 
       output
