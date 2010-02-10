@@ -6,14 +6,16 @@ module Brite
 
   class Command
 
-    def self.start
-      new.start
+    def self.main(*argv)
+      new(*argv).call
     end
 
     def initialize(*argv)
-      parser.parse!(argv.dup)
+      parser.parse!(argv)
       @location = argv.shift || '.'
-      #@output = @argv.shift
+      @output   = nil #@argv.shift
+      @noharm   = false
+      @trace    = false
     end
 
     def parser
@@ -30,11 +32,16 @@ module Brite
           $DEBUG   = true
           $VERBOSE = true
         end
+
+        opt.on_tail("--help", "display this help message") do
+          puts opt
+          exit
+        end
       end
     end
 
     #
-    def start
+    def call
       begin
         site.build
       rescue => e

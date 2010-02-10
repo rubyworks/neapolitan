@@ -28,20 +28,21 @@ module Brite
     # Category ("a glorified tag")
     attr :category
 
-    # rendered output text
-    attr :content
+    # Rendering of each part.
+    attr :renders
 
-    # Rendered summary. This is the rendering of the first part.
-    attr :summary
+    # Rendered output.
+    attr :content
 
     # output extension (defualt is 'html')
     attr :extension
 
     #
     def initialize(site, file)
-      @site  = site
-      @file  = file
-      @parts = []
+      @site    = site
+      @file    = file
+      @parts   = []
+      @renders = []
       parse
     end
 
@@ -110,6 +111,11 @@ module Brite
       to_contextual_attributes
     end
 
+    # Summary is the rendering of the first part.
+    def summary
+      @summary ||= @renders.first
+    end
+
   protected
 
     #--
@@ -124,11 +130,9 @@ module Brite
 
       #attributes['content'] = content if content
 
-      output = parts.map{ |part| part.render(stencil, attributes) }
+      @renders = parts.map{ |part| part.render(stencil, attributes) }
 
-      @summary = output.first
-
-      output = output.join("\n")
+      output = @renders.join("\n")
 
       @content = output
 
@@ -189,12 +193,13 @@ module Brite
 
     #
     def parse_header(head)
-      @stencil   = head['stencil'] || site.defaults.stencil
-      @author    = head['author']  || 'Anonymous'
-      @title     = head['title']
-      @date      = head['date']
-      @category  = head['category']
-      @extension = head['extension']
+      @stencil    = head['stencil'] || site.defaults.stencil
+      @author     = head['author']  || 'Anonymous'
+      @title      = head['title']
+      @date       = head['date']
+      @category   = head['category']
+      @extension  = head['extension']
+      @summary    = head['summary']
 
       self.tags   = head['tags']
       self.layout = head['layout']
