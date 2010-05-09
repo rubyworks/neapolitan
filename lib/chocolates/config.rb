@@ -1,6 +1,6 @@
 require 'ostruct'
 
-module Brite
+module Chocolates
 
   # Configuration
   class Config

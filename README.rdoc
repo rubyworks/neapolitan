@@ -1,0 +1,41 @@
+= Chocolates
+
+* home: http://rubyworks.github.com/chocolates
+* source: http://github.com/rubyworks/chocolates
+
+
+== DESCRIPTION
+
+There are many markup and templating systems in the
+world. Why be limited to just one? Chocolates gives
+you a whole box to pick from.
+
+
+== FEATURES/ISSUES
+
+* All the variety of a Whitman's Sampler.
+* And all the ease of a Hershey's K.I.S.S.
+
+
+== SYNOPSIS
+
+For now please see the Chocolates website and API documentation.
+
+
+== HOW TO INSTALL
+
+You know the routine ;)
+
+  $ sudo gem install chocolates
+
+If you're old fashion and want to install to a site
+location, see Setup.rb (http://protuils.github.com/setup).
+
+
+== COPYRIGHT/LICENSE
+
+Chocolates is Copyright (c) 2010 Thomas Sawyer
+
+It is distributed under the terms of the MIT license.
+
+

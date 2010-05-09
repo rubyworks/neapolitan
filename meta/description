@@ -1,4 +1,4 @@
-Brite is a remarkably easy to use, light-weight website
-generator. It supports a variety of backend rendering engines
-including rhtml via eruby, textile via redcloth, markdown
-via rdiscount, with others on the way.
+Cholcates is a meta-template engine. Like a box of choclates
+is allows you to pick and choose from a variety of rendering
+formats in the construction of a single page. You selection
+includes eruby, textile, markdown and many others.

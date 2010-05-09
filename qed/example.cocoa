@@ -1,0 +1,27 @@
+extension: html
+
+--- rdoc liquid
+
+= Yummy Choclate 
+
+Hi {{ name }},
+
+I know you want some of that yummy stuff.
+
+--- coderay.ruby
+
+  %{c h o c o l a t e s}.each do |letter|
+    puts "Give me a #{letter}!"
+  end
+
+  puts "What's that spell?"
+
+--- textile
+
+|                | 2009 | 2010 |
+| Has Choclates? |  No  | Yes! |
+
+--- markdown
+
+As you can see. It's all _fun_ and _games_ here.
+

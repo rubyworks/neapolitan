@@ -1,0 +1,30 @@
+= Overview of Using Choclates
+
+Require the library.
+
+  require 'choclates'
+
+Load our example template[example.cocoa].
+
+  template = "example.cocoa"
+
+  factory = Choclates::Factory.new(template)
+
+Render with hash table.
+
+  options = { :name=>"Tom" }
+
+  factory.render(options)
+
+Render in an Object scope.
+
+  scope = Struct.new(:name).new("Becky")
+
+  factory.render(scope)
+
+Render via a binding.
+
+  name = "Huck"
+
+  factory.render(binding)
+

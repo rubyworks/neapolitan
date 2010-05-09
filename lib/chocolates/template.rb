@@ -1,48 +1,33 @@
 require 'tilt'
 
-module Brite
+module Chocolates
 
-  # Stencil controls rendering to a variety
-  # of back-end templating and markup systems.
+  # Controls rendering to a variety of back-end templating
+  # and markup systems.
   #
   module TemplateEngine
     extend self
 
     #
-    def render(stencil, format, text, attributes, &content)
-      text = render_format(format, text)
-      text = render_stencil(stencil, text, attributes, &content)
-      text
-    end
+    def render(format, text, source, &block)    
+      table = {}
+      scope = nil
 
-    #def render_format(format, text)
-    #  case format
-    #  when 'rdoc'
-    #    rdoc(text)
-    #  when 'markdown'
-    #    rdiscount(text)
-    #  when 'textile'
-    #    redcloth(text)
-    #  when 'haml'
-    #    haml(text)
-    #  else # html
-    #    text
-    #  end
-    #end
+      case source
+      when Hash
+        table = source
+      when Binding
+        scope = source
+      else # object scope
+        scope = source
+      end
 
-    # Format Rendering
-    # ----------------
-
-    #
-    def render_format(format, text)
       case format
       when /^coderay/
         coderay(text, format)
-      when 'rdoc'  # TODO: Remove when next version of tilt is released.
-        rdoc(text)
       else
         if engine = Tilt[format]
-          engine.new{text}.render #(context)
+          engine.new{text}.render(scope, table, &block)
         else
           text
         end
@@ -92,15 +77,6 @@ module Brite
     #    text
     #  end
     #end
-
-    #
-    def render_stencil(stencil, text, attributes, &content)
-      if engine = Tilt[stencil]
-        engine.new{text}.render(nil, attributes, &content)
-      else
-        text
-      end
-    end
 
     #
     #def erb(input, attributes)
