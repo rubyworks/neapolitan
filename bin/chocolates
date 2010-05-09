@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
-require 'brite/command'
-Brite::Command.main(*ARGV)
+require 'choclates/command'
+Choclates::Command.main(*ARGV)
+
