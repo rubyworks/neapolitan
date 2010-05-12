@@ -1,0 +1,16 @@
+title    : Chocolates
+summary  : Kid in the Candy Store Templating
+copyright: Copyright (c) 2010 Thomas Sawyer
+license  : MIT
+suite    : rubyworks
+contact  : rubyworks-mailinglist@googlegroups.com
+
+description:
+  Chocolates is a meta-template engine. Like a box of choclates
+  is allows you to pick and choose from a variety of rendering
+  formats in the construction of a single document. Selection
+  includes eruby, textile, markdown and many others.
+
+authors:
+- Thomas Sawyer
+
