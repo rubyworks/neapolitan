@@ -14,3 +14,9 @@ description:
 authors:
 - Thomas Sawyer
 
+resources:
+  homepage    : http://rubyworks.github.com/chocolates
+  repository  : git://github.com/rubyworks/chocolates.git
+  development : http://github.com/rubyworks/chocolates
+  reference   : http://rubyworks.github.com/chocolates/rdoc
+  wiki        : http://wiki.github.com/rubyworks/chocolates
