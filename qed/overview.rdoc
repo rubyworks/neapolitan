@@ -6,25 +6,27 @@ Require the library.
 
 Load our example template[example.cocoa].
 
-  template = "example.cocoa"
+  tmpfile = "example.cocoa"
 
-  factory = Chocolates::Factory.new(template)
+  options = {:name=>"Tom"}
 
-Render with hash table.
+  document = Chocolates::Document.new(tmpfile, options)
 
-  options = { :name=>"Tom" }
-
-  factory.render(options)
+  document.to_s
 
 Render in an Object scope.
 
   scope = Struct.new(:name).new("Becky")
 
-  factory.render(scope)
+  document.resource(scope)
+
+  document.to_s
 
 Render via a binding.
 
   name = "Huck"
 
-  factory.render(binding)
+  document.resource(binding)
+
+  document.to_s
 
