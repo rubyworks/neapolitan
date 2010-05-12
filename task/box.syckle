@@ -1,9 +1,0 @@
----
-box:
-  service: Box
-  types  : [ gem, gz ]
-  spec   : false
-  include: [ bin, demo, doc, lib, meta, test, "[A-Z]*" ]
-  exclude: [ doc/rdoc, doc/ri ]
-  active : true
-
