@@ -1,150 +1,195 @@
-require 'chocolates/part'
+require 'tilt'
 
 module Chocolates
 
+  # Controls rendering to a variety of back-end templating
+  # and markup systems.
   #
-  class Factory
-
-    # File path.
-    attr :file
-
-    # Front matter.
-    attr :matter
-
-    ## Template type (rhtml or liquid)
-    #attr :stencil
-
-    # Output extension (defualt is 'html')
-    attr :extension
-
-    # Rendering of each part.
-    attr :renders
-
-    # Rendered output.
-    attr :content
+  module Factory
+    extend self
 
     #
-    def initialize(file)
-      @file    = file
-      @parts   = []
-      @renders = []
-      parse
-    end
+    def render(format, text, source, &block)    
+      table = {}
+      scope = nil
 
-    #
-    def name
-      @name ||= file.chomp(File.extname(file))
-    end
-
-    ##
-    #def url
-    #  @url ||= '/' + name + extension
-    #end
-
-    #
-    def extension
-      @extension ||= '.html'
-    end
-
-    # DEPRECATE: Get rid of this and use rack to test page instead of files.
-    def root
-      '../' * file.count('/')
-    end
-
-    #
-    def work
-      '/' + File.dirname(file)
-    end
-
-    #def to_contextual_attributes
-    #  { 'site'=>site.to_h, 'page'=>to_h, 'root'=>root, 'work'=>work }
-    #end
-
-    ##
-    #def to_liquid
-    #  to_contextual_attributes
-    #end
-
-    # Summary is the rendering of the first part.
-    def summary
-      @summary ||= @renders.first
-    end
-
-    #
-    def render(source, &block)
-      @renders = parts.map{ |part| part.render(source, &block) }
-      @output  = renders.join("\n")
-      @output
-    end
-
-    #
-    def save(path=nil)
-      raise "template has not been rendered" unless output
-      path = Dir.pwd unless path
-      if File.directory?(path)
-        file = File.join(path, file.chomp(File.extname(file)) + extension)
-      else
-        file = path
+      case source
+      when Hash
+        table = source
+      when Binding
+        scope = source
+      else # object scope
+        scope = source
       end
-      if Choclates.dryrun?
-        $stderr << "[DRYRUN] write #{fname}"
+
+      case format
+      when /^coderay/
+        coderay(text, format)
       else
-        File.open(fname, 'w'){ |f| f << output }
-      end
-    end
-
-    #
-    def parts
-      @parts
-    end
-
-  private
-
-    #
-    def parse
-      hold = []
-      text = File.read(file)
-      sect = text.split(/^\-\-\-/)
-
-      if sect.size == 1
-        @matter = {}
-        @parts << Part.new(sect[0], site.defaults.format)
-      else
-        #void = sect.shift
-        head = sect.shift
-        head = YAML::load(head)
-
-        parse_header(head)
-
-        sect.each do |body|
-          index   = body.index("\n")
-          format  = body[0...index].strip
-          format  = site.defaults.format if format.empty?
-          formats = format.split(/\s+/)
-          text    = body[index+1..-1]     
-          @parts << Part.new(text, *formats)
+        if engine = Tilt[format]
+          engine.new{text}.render(scope, table, &block)
+        else
+          text
         end
       end
-
     end
 
     #
-    def parse_header(head)
-      @matter    = head
-      @extension = head['extension']
+    #def redcloth(input)
+    #  RedCloth.new(input).to_html
+    #end
+
+    #def bluecloth(input)
+    #  BlueCloth.new(input).to_html
+    #end
+
+    #def rdiscount(input)
+    #  RDiscount.new(input).to_html
+    #end
+
+    def rdoc(input)
+      markup = RDoc::Markup::ToHtml.new
+      markup.convert(input)
     end
 
-  public
+    #def haml(input)
+    #  Haml::Engine.new(input).render
+    #end
 
-    def to_s
-      @output
+    def coderay(input, format)
+      require 'coderay'
+      format = format.split('.')[1] || :ruby #:plaintext
+      tokens = CodeRay.scan(input, format.to_sym) #:ruby
+      tokens.div()
     end
 
-    def inspect
-      "<#{self.class}: #{file}>"
+    # Stencil Rendering
+    # -----------------
+
+    #
+    #def render_stencil(stencil, text, attributes)
+    #  case stencil
+    #  when 'rhtml'
+    #    erb(text, attributes)
+    #  when 'liquid'
+    #    liquid(text, attributes)
+    #  else
+    #    text
+    #  end
+    #end
+
+    #
+    #def erb(input, attributes)
+    #  template = ERB.new(input)
+    #  context  = TemplateContext.new(attributes)
+    #  result   = template.result(context.__binding__)
+    #  result
+    #end
+
+    #def liquid(input, attributes)
+    #  template = Liquid::Template.parse(input)
+    #  result   = template.render(attributes, :filters => [TemplateFilters])
+    #  result
+    #end
+
+=begin
+    # Require Dependencies
+    # --------------------
+
+    # TODO: Load engines only if used.
+
+    begin ; require 'rubygems'  ; rescue LoadError ; end
+    begin ; require 'erb'       ; rescue LoadError ; end
+    begin ; require 'redcloth'  ; rescue LoadError ; end
+    begin ; require 'bluecloth' ; rescue LoadError ; end
+    begin ; require 'rdiscount' ; rescue LoadError ; end
+
+    begin
+      require 'liquid'
+      #Liquid::Template.register_filter(TemplateFilters)
+    rescue LoadError
+    end
+
+    begin
+      require 'haml'
+      #Haml::Template.options[:format] = :html5
+    rescue LoadError
+    end
+=end
+
+    begin
+      require 'rdoc/markup'
+      require 'rdoc/markup/to_html'
+    rescue LoadError
     end
 
   end
+
+=begin
+  # = Clean Rendering Context
+  #
+  # The Factory Context is is used by ERB.
+
+  class Context
+    #include TemplateFilters
+
+    instance_methods(true).each{ |m| private m unless m =~ /^__/ }
+
+    def initialize(attributes={})
+      @attributes = attributes
+    end
+
+    def __binding__
+      binding
+    end
+
+    def to_h
+      @attributes
+    end
+
+    def method_missing(s, *a)
+      s = s.to_s
+      @attributes.key?(s) ? @attributes[s] : super
+    end
+  end
+=end
+
+  #
+  #
+  #
+
+  #module TemplateFilters
+
+    # NOTE: HTML truncate did not work well.
+
+    # # HTML comment regular expression
+    # REM_RE = %r{<\!--(.*?)-->}
+    #
+    # # HTML tag regular expression
+    # TAG_RE = %r{</?\w+((\s+\w+(\s*=\s*(?:"(.|\n)*?"|'(.|\n)*?'|[^'">\s]+))?)+\s*|\s*)/?>}    #'
+    #
+    # #
+    # def truncate_html(html, limit)
+    #   return html unless limit
+    #
+    #   mask = html.gsub(REM_RE){ |m| "\0" * m.size }
+    #   mask = mask.gsub(TAG_RE){ |m| "\0" * m.size }
+    #
+    #   i, x = 0, 0
+    #
+    #   while i < mask.size && x < limit
+    #     x += 1 if mask[i] != "\0"
+    #     i += 1
+    #   end
+    #
+    #   while x > 0 && mask[x,1] == "\0"
+    #     x -= 1
+    #   end
+    #
+    #   return html[0..x]
+    # end
+
+  #end
 
 end
 

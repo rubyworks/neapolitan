@@ -16,6 +16,12 @@ I know you want some of that yummy stuff.
 
   puts "What's that spell?"
 
+--- html erb
+
+<quote>
+  <%= yield %>
+</quote>
+
 --- textile
 
 |                | 2009 | 2010 |

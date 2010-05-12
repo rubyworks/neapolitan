@@ -1,14 +1,14 @@
-= Overview of Using Choclates
+= Overview of Using Chocolates
 
 Require the library.
 
-  require 'choclates'
+  require 'chocolates'
 
 Load our example template[example.cocoa].
 
   template = "example.cocoa"
 
-  factory = Choclates::Factory.new(template)
+  factory = Chocolates::Factory.new(template)
 
 Render with hash table.
 

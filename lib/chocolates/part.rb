@@ -1,4 +1,4 @@
-require 'chocolates/template'
+require 'chocolates/factory'
 
 module Chocolates
 
@@ -21,13 +21,13 @@ module Chocolates
     #
     def render(source, &block)
       formats.inject(text) do |rendering, format|
-        template_engine.render(format, rendering, source, &block)
+        factory.render(format, rendering, source, &block)
       end
     end
 
     #
-    def template_engine
-      TemplateEngine
+    def factory
+      Factory
     end
 
   end

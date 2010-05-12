@@ -1,1 +1,1 @@
-require 'chocolates/factory'
+require 'chocolates/document'

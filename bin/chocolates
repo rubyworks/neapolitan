@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require 'choclates/command'
-Choclates::Command.main(*ARGV)
+require 'chocolates/command'
+Chocolates::Command.main(*ARGV)
 

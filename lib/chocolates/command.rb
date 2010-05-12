@@ -11,11 +11,14 @@ module Chocolates
     end
 
     def initialize(*argv)
+      @output    = nil
+      @noharm    = false
+      @trace     = false
+      @data_file = nil
+
       parser.parse!(argv)
-      @files    = argv
-      @output   = nil
-      @noharm   = false
-      @trace    = false
+
+      @files = argv
     end
 
     def parser
@@ -26,8 +29,8 @@ module Chocolates
           @output = path
         end
 
-        opt.on("--source", "-s [FILE]", "source data file" do |file|
-          @source_file = file
+        opt.on("--source", "-s [FILE]", "source data file") do |file|
+          @data_file = file
         end
 
         opt.on("--trace", "show extra operational information") do
@@ -53,13 +56,12 @@ module Chocolates
     #
     def call
       begin
-        files.each do |file|
-          factory = Factory.new(file)
-          factory.render(source)
+        @files.each do |file|
+          doc = Document.new(file, data)
           if @output
-            factory.
+            #doc.save
           else
-            factory
+            puts doc
           end
         end
       rescue => e
@@ -68,11 +70,11 @@ module Chocolates
     end
 
     #
-    def source
-      if @source_file
-        @source ||= YAML.load(@source_file)
+    def data
+      if @data_file
+        YAML.load(File.new(@data_file))
       else
-        @source ||= YAML.load(ARGF.read)
+        {} #@source ||= YAML.load(STDIN.read)
       end
     end
 
