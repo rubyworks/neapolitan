@@ -1,0 +1,18 @@
+production:
+  requires:
+    - tilt 0.9+
+  suggest:
+    - rdiscount
+  ruby:
+    - mri 1.8.7
+
+development:
+  requires:
+    - tilt 0.9+
+    - rdoc 2.5+
+    - rdiscount
+    - redcloth
+    - haml
+    - qed
+    - rcov
+
