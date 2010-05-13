@@ -1,6 +1,6 @@
 = ROADMAP
 
-= 1.1.0
+== 1.1.0
 
 At this point the best thing for Chocolates is to
 contribute to Tilt so it support more formats.
