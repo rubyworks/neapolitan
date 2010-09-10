@@ -1,32 +1,81 @@
-= Overview of Using Chocolates
+= Example Choclates Document
+
+Here is an example choclates file, 'example.choc':
+
+    extension: html
+
+    --- rdoc erb
+
+    = Yummy Choclate 
+
+    Hi <%= name %>,
+
+    I know you want some of that yummy stuff.
+
+    --- coderay.ruby
+
+      %{c h o c o l a t e s}.each do |letter|
+        puts "Give me a #{letter}!"
+      end
+
+      puts "What's that spell?"
+
+    --- html liquid
+
+    <quote>
+      {{ yield }}
+    </quote>
+
+    --- textile
+
+    |                | 2009 | 2010 |
+    | Has Choclates? |  No  | Yes! |
+
+    --- markdown
+
+    As you can see. It's all _fun_ and _games_ here.
+
+= Loading the Library
 
 Require the library.
 
-  require 'chocolates'
+    require 'chocolates'
 
-Load our example template[example.cocoa].
+= Reading a Cholcates File
 
-  tmpfile = "example.cocoa"
+Load our example template[fixtures/example.choc].
 
-  options = {:name=>"Tom"}
+    file = "qed/fixtures/example.choc"
 
-  document = Chocolates::Document.new(tmpfile, options)
+    document = Chocolates::Document.new(file)
 
-  document.to_s
+= Rendering Data Sources
 
-Render in an Object scope.
+Chocolates uses Malt on the backend. Malt supports a three separate ways to pass
+data into a template.
 
-  scope = Struct.new(:name).new("Becky")
+The most obvious data source is a Hash.
 
-  document.resource(scope)
+    data = {:name=>"Tom"}
 
-  document.to_s
+    text = document.render(data).to_s
 
-Render via a binding.
+    text.assert =~ /Hi Tom/
 
-  name = "Huck"
+Templates can also be rendered given a Binding.
 
-  document.resource(binding)
+    name = "Huck"
 
-  document.to_s
+    text = document.render(binding).to_s
+
+    text.assert =~ /Hi Huck/
+
+And lastly, they can be renderedwith the scope of any other type of Object,
+including an instance of a Struct.
+
+    scope = Struct.new(:name).new("Becky")
+
+    text = document.render(scope).to_s
+
+    text.assert =~ /Hi Becky/
 

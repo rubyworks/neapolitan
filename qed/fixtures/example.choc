@@ -1,10 +1,10 @@
 extension: html
 
---- rdoc liquid
+--- rdoc erb
 
 = Yummy Choclate 
 
-Hi {{ name }},
+Hi <%= name %>,
 
 I know you want some of that yummy stuff.
 
@@ -16,10 +16,10 @@ I know you want some of that yummy stuff.
 
   puts "What's that spell?"
 
---- html erb
+--- html liquid
 
 <quote>
-  <%= yield %>
+  {{ yield }}
 </quote>
 
 --- textile
