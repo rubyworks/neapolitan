@@ -1,19 +1,13 @@
-production:
-  requires:
-    - tilt 0.9+
-  suggest:
-    - rdiscount
-  ruby:
-    - mri 1.8.7
+name   : chocolates
+version: 1.0.0
+date   : 2010-08-21
 
-development:
-  requires:
-    - tilt 0.9+
-    - rdoc 2.5+
-    - rdiscount
-    - redcloth
-    - haml
-    - syckle
-    - qed
-    - rcov
+requires:
+  - tilt 0.9+
+  - rdiscount (optional, development)
+  - redcloth  (optional, development)
+  - haml      (optional, development)
+  - rdoc 2.5+ (doc)
+  - syckle    (build)
+  - qed       (test)
 

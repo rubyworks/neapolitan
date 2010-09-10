@@ -1,0 +1,22 @@
+#!mast -x Syckfile bin lib meta qed test [A-Z]*
+bin/chocolates
+lib/chocolates/command.rb
+lib/chocolates/config.rb
+lib/chocolates/document.rb
+lib/chocolates/factory.rb
+lib/chocolates/meta/data.rb
+lib/chocolates/meta/gemfile
+lib/chocolates/meta/profile
+lib/chocolates/part.rb
+lib/chocolates/template.rb
+lib/chocolates.rb
+meta/data.rb
+meta/gemfile
+meta/profile
+qed/fixtures/example.choc
+qed/fixtures/example.html
+qed/fixtures/example.yaml
+qed/overview.rdoc
+HISTORY.rdoc
+LICENSE
+README.rdoc

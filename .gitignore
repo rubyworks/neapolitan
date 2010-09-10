@@ -1,10 +1,6 @@
-.cache
-doc/qedoc
-doc/rdoc
-doc/ri
-doc/webri
+ri
 log
 pkg
+tmp
+site/docs
 work/sandbox
-MANIFEST
-
