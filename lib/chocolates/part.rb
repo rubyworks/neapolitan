@@ -19,9 +19,9 @@ module Chocolates
     end
 
     #
-    def render(source, &block)
+    def render(data, &block)
       formats.inject(text) do |rendering, format|
-        factory.render(format, rendering, source, &block)
+        factory.render(format, rendering, data, &block)
       end
     end
 

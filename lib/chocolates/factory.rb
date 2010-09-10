@@ -1,4 +1,5 @@
-require 'tilt'
+#require 'tilt'
+require 'malt'
 
 module Chocolates
 
@@ -9,28 +10,32 @@ module Chocolates
     extend self
 
     #
-    def render(format, text, source, &block)    
-      table = {}
-      scope = nil
+    def render(format, text, source, &yld) 
+      #table = {}
+      #scope = Object.new
 
       case source
       when Hash
-        table = source
+        db = source
       when Binding
-        scope = source
+        db = source
       else # object scope
-        scope = source
+        db = source
       end
 
       case format
       when /^coderay/
         coderay(text, format)
+      when /^syntax/
+        syntax(text, format)
       else
-        if engine = Tilt[format]
-          engine.new{text}.render(scope, table, &block)
-        else
-          text
-        end
+        doc = Malt.text(text, :format=>format.to_sym)
+        doc.render(db, &yld)
+        #if engine = Tilt[format]
+        #  engine.new{text}.render(scope, table, &yld)
+        #else
+        #  text
+        #end
       end
     end
 
@@ -61,6 +66,15 @@ module Chocolates
       format = format.split('.')[1] || :ruby #:plaintext
       tokens = CodeRay.scan(input, format.to_sym) #:ruby
       tokens.div()
+    end
+
+    #
+    def syntax(input, format)
+      require 'syntax/convertors/html'
+      format = format.split('.')[1] || 'ruby' #:plaintext
+      lines  = true
+      conv   = Syntax::Convertors::HTML.for_syntax(format)
+      conv.convert(input,lines)
     end
 
     # Stencil Rendering

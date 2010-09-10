@@ -2,14 +2,25 @@ require 'chocolates/template'
 
 module Chocolates
 
-  # = Document
+  # = Chocolates Document
   #
+  # The Document class encapsulates a file which
+  # can be then be rendered via a Chocolates::Template.
   class Document
 
     # File path.
     attr :file
 
-    def initialize(file, data={}, &block)
+    #
+    attr :template
+
+    # New Document object.
+    #
+    # file    - path to chocolates formatted file
+    # options - configuration passed on to the Template class
+    #
+    # Returns a new Document object.
+    def initialize(file, options={})
       case file
       when File
         @file = file.name
@@ -20,7 +31,7 @@ module Chocolates
         @text = File.read(file)
       end
 
-      @template = Template.new(@text, data, &block)
+      @template = Template.new(@text, options)
     end
 
     #
@@ -28,56 +39,38 @@ module Chocolates
       "<#{self.class}: @file='#{file}'>"
     end
 
+    # Name of file less extname.
+    #def name
+    #  @name ||= file.chomp(File.extname(file))
+    #end
+
     #
-    def name
-      @name ||= file.chomp(File.extname(file))
+    def render(data={}, &block)
+      @template.render(data, &block)
     end
 
-=begin
+    # TODO: how to handle extension?
+    def save(*path_and_data, &block)
+      data = Hash===path_and_data.last ? path_and_data.pop : {}
+      path = path_and_data
 
-    ##
-    #def url
-    #  @url ||= '/' + name + extension
-    #end
+      rendering = render(data, &block)
+      extension = rendering.header['extension'] || '.html'
 
-    ## DEPRECATE: Get rid of this and use rack to test page instead of files.
-    #def root
-    #  '../' * file.count('/')
-    #end
-
-    ##
-    #def work
-    #  '/' + File.dirname(file)
-    #end
-=end
-
-    #
-    def save(path=nil)
-      raise "template has not been rendered" unless output
       path = Dir.pwd unless path
       if File.directory?(path)
         file = File.join(path, file.chomp(File.extname(file)) + extension)
       else
         file = path
       end
-      if Choclates.dryrun?
+
+      if $DRYRUN
         $stderr << "[DRYRUN] write #{fname}"
       else
-        File.open(fname, 'w'){ |f| f << output }
+        File.open(fname, 'w'){ |f| f << rendering.to_s }
       end
-    end
-
-    #
-    def to_s
-      @template.to_s
-    end
-
-    #
-    def summary
-      @template.summary
     end
 
   end
 
 end
-
