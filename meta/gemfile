@@ -1,6 +1,6 @@
 name    : neapolitan
 date    : 2010-09-14
-version : 0.1.0
+version : 0.2.0
 
 requires:
   - malt
