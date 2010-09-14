@@ -1,6 +1,6 @@
-require 'chocolates/part'
+require 'neapolitan/part'
 
-module Chocolates
+module Neapolitan
 
   #
   class Template

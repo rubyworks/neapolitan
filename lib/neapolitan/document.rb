@@ -1,6 +1,6 @@
-require 'chocolates/template'
+require 'neapolitan/template'
 
-module Chocolates
+module Neapolitan
 
   # = Chocolates Document
   #

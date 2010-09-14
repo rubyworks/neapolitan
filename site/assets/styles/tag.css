@@ -1,17 +1,13 @@
-/* TAG STYLES */
-
-/* LAYOUT */
+/* <<<<< TAG STYLES >>>>> */
 
 pre {
-  -moz-border-radius: 10px; border: 1px solid #ccc; padding: 10px 10px; color: yellow; background: #ff3600;
+  border: 1px solid #ccc;
+  padding: 10px 10px; color: #211; background: #eee;
   font-family: courier, monospace; font-size: 13px; font-weight: bold;
 }
 
-
-/* COLOR */
-
 a {
-  color: #ff3600;
+  color: tan;
 }
 
 a:hover {
@@ -23,7 +19,85 @@ p {
   font-size: 14px;
 }
 
-h1,h2 {
-  color: #ff3600;
+h1 {
+  color: #404;
+  padding-left: 40px;
+  -moz-border-radius: 10px; border: 1px solid #ccc;
+  background: url(../images/icon.jpg) no-repeat;
+  font-family: times; font-size: 3em;
+}
+
+h2 {
+
+}
+
+/* ((((( CLASSES ))))) */
+
+.page { margin: 0 auto; width: 720px; }
+
+.content { padding: 0; }
+
+.heading { font-size: 2em; }
+
+.heading .title { font-size: 1.0em; font-weight: bold; color: #ff4455; }
+.heading .title:hover { color: #2454ad; }
+
+.heading .date  { font-size: 0.7em; }
+
+
+/* [[[[[ ID STYLES ]]]]] */
+
+/* menu */
+
+#menu {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  font-variant: small-caps;
+  color: tan;
+}
+
+#menu a { color: #644; }
+#menu a:hover { color: black; text-decoration: none; }
+
+/* header */
+
+#header {
+  height: 210px;
+  position: relative;
+  border-top: 0px solid #999;
+  border-bottom: 0px solid #999;
+  color: #644;
+  background: #562600;
+  background: url(../images/stripes.png) center;
+  font-variant: small-caps;
+}
+
+#header .title {
+  color: #fff;
+  padding-top: 88px;
+  text-align: left;
+  font-family: times;
+  font-size: 200px; text-align: center; font-weight: bold;
+  line-height: 42px; letter-spacing: -10px; 
+}
+
+/* footer */
+
+#footer {
+  padding: 20px 0 40px 0;
+  font-size: 8px;
+  font-weight: bold; 
+  background: #ffbbd2;
+  background: url(../images/stripes.png) center;
+  color: white;
+}
+
+
+#main {
+  background: white;
+  color #ff3600;
 }
 

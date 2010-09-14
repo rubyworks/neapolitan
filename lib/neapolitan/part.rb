@@ -1,6 +1,6 @@
-require 'chocolates/factory'
+require 'neapolitan/factory'
 
-module Chocolates
+module Neapolitan
 
   # A Part is the section of a page. Pages can be segmented into
   # parts using the '--- FORMAT' notation.

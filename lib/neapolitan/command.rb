@@ -1,6 +1,6 @@
-require 'chocolates'
+require 'neapolitan'
 
-module Chocolates
+module Neapolitan
 
   # Command line interface.
 
@@ -23,7 +23,7 @@ module Chocolates
 
     def parser
       OptionParser.new do |opt|
-        opt.banner = "chocolates [file1 file2 ...]"
+        opt.banner = "neapolitan [file1 file2 ...]"
 
         opt.on("--output", "-o [PATH]", "save output to specified directory") do |path|
           @output = path

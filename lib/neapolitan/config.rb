@@ -1,6 +1,6 @@
 require 'ostruct'
 
-module Chocolates
+module Neapolitan
 
   # Configuration
   class Config

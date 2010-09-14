@@ -8,14 +8,14 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 
-  <title>Web Write</title>
+  <title>Neapolitan</title>
 
   <!-- google verification TODO -->
 
   <meta name="DESCRIPTION"
         content="Webrite is a K.I.S.S. website builder."/>
 
-  <link rel="icon" href="assets/images/icon.jpg" type="image/x-icon" />
+  <link rel="icon" href="assets/images/stripes.png" />
 
   <link href="atom.xml" rel="alternate" title="blog.webrite.rubyforge.org" type="application/atom+xml" />
 
@@ -30,8 +30,6 @@
   <![endif]-->
 
   <link href="assets/styles/tag.css"    rel="stylesheet" type="text/css" />
-  <link href="assets/styles/id.css"     rel="stylesheet" type="text/css" />
-  <link href="assets/styles/class.css"  rel="stylesheet" type="text/css" />
 
   <!-- <link href="assets/styles/syntax.css"  rel="stylesheet" type="text/css" /> -->
   <!-- <script src="js/rdocs.js" type="text/javascript"></script> -->
@@ -42,19 +40,19 @@
 
 <body>
 
-<div id="menu">
-  <div class="page">
-    <!-- <a href="qedoc/index.html">QEDocs</a> &nbsp; -->
-    <a href="rdoc/index.html">Documentation</a> &nbsp;
-    <a href="http://groups.google.com/group/proutils">Mailing List</a> &nbsp;
-    <a href="http://github.com/proutils/brite/">Development</a> &nbsp;
+<div id="header">
+  <div class="title">
+    <img src="assets/images/logo.jpg" align="right" height="220px" />
+    NEAPOLITAN
   </div>
 </div>
 
-<div id="header">
-  <div class="title page">
-    <img src="assets/images/suno.jpg" align="right" height="220px" />
-    Brite
+<div id="menu">
+  <div class="page">
+    <a href="docs/qed/index.html">QED</a> &middot;
+    <a href="docs/api/index.html">API</a> &middot;
+    <a href="http://groups.google.com/group/rubyworks-mailinglist">MAIL</a> &middot;
+    <a href="http://github.com/rubyworks/neapolitan">CODE</a>
   </div>
 </div>
 
@@ -65,89 +63,83 @@
 
   <br style="float: clear;"/>
 
-  <div class="content">
-    <h1>The &#8220;Brite&#8221; Idea</h1>
-<p>
-Brite is a static website/blog generator. It is very easy to use, yet
-versitle. It&#8217;s design is both innovative and wisly borrows
-best-of-breed ideas from similar projects.
-</p>
+<div class="content">
+
 <h1>Overview</h1>
-<p>
-You will likely want to install Brite via RubyGems.
-</p>
-<pre>
-  $ gem install brite
-</pre>
-<p>
-If you&#8217;re old fashion and want to install to a site location, please
-see Setup.rb (<a
-href="http://proutils.github.com/setup">proutils.github.com/setup</a>).
-</p>
-<p>
-A good way to get started is to look at the files for this website or at
-the Sow template for a brite project.
-</p>
-<ul>
-<li><a
-href="http://github.com/proutils/brite/tree/master/site">github.com/proutils/brite/tree/master/site</a>/
 
-</li>
-<li><a
-href="http://github.com/proutils/brite/tree/master/plug/sow/seeds/brite/template">github.com/proutils/brite/tree/master/plug/sow/seeds/brite/template</a>/
+<p>
+Neapolitan is <i>meta-template</i> format. It allows the designer
+to string together a variety is different template formats in
+a single document.
+</p>
 
-</li>
-</ul>
 <p>
-To make it even easier you can install Sow (<a
-href="http://proutils.github.com/sow">proutils.github.com/sow</a>) and then
-use:
+A simple example of a .np file:
 </p>
+
 <pre>
-  $ sow brite &lt;site-dir&gt;
+  author: Abe Lincoln
+  date  : 2010-10-10
+
+  --- markdown
+
+  Examples Of Liberty
+  ===================
+
+  * Sparticus
+  * Emancipation Proclimation
+  * Neapolitan
+
+  --- textile
+
+  h1. Table of Freedom
+
+  | political  | billd of rights |
+  | templating | neapolitan |
 </pre>
+
 <p>
-In either case you will see somthing along the lines of these files:
+The top portion of any Neapolitan document is the YAML front matter.
+Each subsequent section is started via three dashes ('---') flush
+the left margin followed by the section type. In this example, we
+have a Textile formated section following a Markdown section,
+presumably because Markdown lack support for tables.
 </p>
+
+<p>Section can have more than one type if they are compatible. The
+Neapolitan parser simply passes the section contents thru each 
+underlying engine in turn.</p>
+
 <pre>
-  2010/01/sample.post
-  assets/images/logo.jpg
-  assets/styles/class.css
-  assets/styles/id.css
-  assets/styles/reset.css
-  assets/styles/tag.css
-  page.layout
-  post.layout
-  index.page
+  date : 2010-10-10
+
+  --- rdoc erb
+
+  = Example
+
+  Blah blah blah...
+
+  Wirtten on <%= date %>.
 </pre>
+
 <p>
-Look them over carefully, and I think you will quickly see how the system
-works. Try editing your copy of the files. Then, when you are ready, from
-the toplevel of the directory, type:
 </p>
-<pre>
-  $ brite
-</pre>
-<p>
-Brite will list the files generated. Now you can fire up you browser:
-</p>
-<pre>
-  $ firefox index.html
-</pre>
-<p>
-And all things are made bright :)
-</p>
+
+
 <h1>Copyright &amp; License</h1>
-<p>
-Brite is Copyright &#169; 2009 Thomas Sawyer
-</p>
-<p>
-It is distributed under the terms of the GPL license.
-</p>
 
-  </div>
+<p>Neapolitan is Copyright &#169; 2009 Thomas Sawyer</p>
 
-  <br style="clear: both;"/><br/><br/>
+<p>It is distributed under the terms of the Apache License v2.0.</p>
+
+<p>THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.</p>
+
+</div>
+
+<br style="clear: both;"/><br/><br/>
 
 </div>
 </div>
@@ -169,24 +161,9 @@ It is distributed under the terms of the GPL license.
   src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   </script>
 
-  <br/>
-
-  <img src="assets/images/abc1.png"/>
-
   <br/><br/>
 
-  Copyright (c) 2005-2008 Thomas Sawyer <br/><br/>
-
-  Brite & ProUtils were created by Thomas Sawyer (7rans).<br/>
-
-  Brite is released under the terms of the GPLv3 license.<br/>
-
-  <br/><br/>
-
-  THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR
-  IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-  PURPOSE.
+  Copyright (c) 2009,2010 Thomas Sawyer <br/>
 </div>
 </div>
 

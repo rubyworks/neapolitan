@@ -1,13 +1,13 @@
-name   : chocolates
-version: 1.0.0
-date   : 2010-08-21
+name    : neapolitan
+date    : 2010-09-14
+version : 0.1.0
 
 requires:
-  - tilt 0.9+
+  - malt
   - rdiscount (optional, development)
   - redcloth  (optional, development)
   - haml      (optional, development)
-  - rdoc 2.5+ (doc)
+  - rdoc 2.5+ (optional, development, document)
   - syckle    (build)
   - qed       (test)
 

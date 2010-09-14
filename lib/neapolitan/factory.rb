@@ -1,7 +1,7 @@
 #require 'tilt'
 require 'malt'
 
-module Chocolates
+module Neapolitan
 
   # Controls rendering to a variety of back-end templating
   # and markup systems.

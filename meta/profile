@@ -1,23 +1,23 @@
-title    : Chocolates
+title    : Neapolitan
 summary  : Kid in the Candy Store Templating
 copyright: Copyright (c) 2010 Thomas Sawyer
-license  : MIT
+license  : Apache 2.0
 suite    : rubyworks
 contact  : rubyworks-mailinglist@googlegroups.com
 
 description:
-  Chocolates is a meta-template engine. Like a box of choclates
-  is allows you to pick and choose from a variety of rendering
-  formats in the construction of a single document. Selection
-  includes eruby, textile, markdown and many others.
+  Neapolitan is a meta-templating engine. Like a candy store
+  it allows you to pick and choose from a variety of rendering
+  formats in the construction of a single document. Selections
+  include eruby, textile, markdown and many others.
 
 authors:
 - Thomas Sawyer
 
 resources:
-  homepage    : http://rubyworks.github.com/chocolates
-  repository  : git://github.com/rubyworks/chocolates.git
-  development : http://github.com/rubyworks/chocolates
-  reference   : http://rubyworks.github.com/chocolates/rdoc
-  wiki        : http://wiki.github.com/rubyworks/chocolates
+  homepage    : http://rubyworks.github.com/neapolitan
+  development : http://github.com/rubyworks/neapolitan
+  reference   : http://rubyworks.github.com/neapolitan/docs/api
+  wiki        : http://wiki.github.com/rubyworks/neapolitan
+  repository  : git://github.com/rubyworks/neapolitan.git
 
