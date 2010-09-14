@@ -11,14 +11,15 @@ h1, h2 {
   padding-top: 30px;
 }
 
+/*
 h1:first-child {
   padding-top: 5px;
 }
-
+*/
 
 /* menu */
 
-.menu {
+#menu {
   width: 100%;
   padding: 20px 0;
   text-align: center;
@@ -26,7 +27,7 @@ h1:first-child {
 
 /* main */
 
-.main {
+#main {
   border: 1px solid pink;
 }
 
@@ -36,19 +37,19 @@ h1:first-child {
 
 /* header */
 
-.header {
+#header {
   height: 240px;
   position: relative;
 }
 
-.header .title {
+#header .title {
   padding-top: 10px;
   text-align: left;
 }
 
 /* footer */
 
-.footer {
+#footer {
   padding: 20px;
 }
 

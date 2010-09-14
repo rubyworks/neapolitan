@@ -56,10 +56,11 @@ body { margin: 0; padding: 0; }
 
 a { text-decoration: none; }
 
-h1, h2 { padding-top: 30px; }
+h1, h2 { padding: 30px 10px; }
 
+/*
 h1:first-child { padding-top: 5px; }
-
+*/
 
 /* -----------------------------------------------------------------
 

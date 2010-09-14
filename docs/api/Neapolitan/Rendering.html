@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Class: Neapolitan::Rendering</title>
+
+  
+    <link rel="SHORTCUT ICON" href="../assets/icon/class.png">
+  
+
+  <link type="text/css" rel="stylesheet" href="../assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="../assets/highlight/styles/github.css" title="GitHub" />
+
+  <script type="text/javascript" charset="utf-8" src="../assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+      $('#documentation pre').wrapInner('<code></code>');
+      hljs.tabReplace = '    ';
+      hljs.initHighlightingOnLoad('ruby');
+
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind( "click", highlightClickTarget );
+    });
+  </script>
+</head>
+<body class="class">
+<div id="main">
+
+  <div class="head">
+    <h1>
+      
+        <img src="../assets/icon/class.png" align="absmiddle">&nbsp;
+      
+      <a href="../index.html">Neapolitan</a>&nbsp;
+      <a href="/">Neapolitan::Rendering</a>
+    </h1>
+  </div>
+
+  <div id="metadata">
+    <div id="project-metadata">
+
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li class="file"><a href="../lib/neapolitan/template_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/neapolitan/template.rb">lib/neapolitan/template.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      <!-- What about Git info, or Hg info? This seems almost silly, albeit kind of cool. -->
+      <!-- TODO: generalize this for all SCMs -->
+
+      
+    </div>
+
+    <div id="class-metadata">
+
+      <!-- Parent Class -->
+      
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        <ul>
+          
+          <li class="class">Object</li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Namespace Contents -->
+      
+
+      <!-- Method Quickref -->
+      
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+            
+            <li class="singleton">
+              <a href="#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-header">#header</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-render">#render</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-summary">#summary</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-to_a">#to_a</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-to_s">#to_s</a>
+            </li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Included Modules -->
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Information</h3>
+        <ul>
+        
+          <li class="file"><a href="../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+        
+          <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
+        
+          <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="../assets/icon/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <!-- classpage.html : classes -->
+        <ul class="link-list">
+        
+          <li class="module"><a href="../Neapolitan.html">Neapolitan</a></li>
+        
+          <li class="class"><a href="../Neapolitan/Command.html">Neapolitan::Command</a></li>
+        
+          <li class="class"><a href="../Neapolitan/Config.html">Neapolitan::Config</a></li>
+        
+          <li class="class"><a href="../Neapolitan/Document.html">Neapolitan::Document</a></li>
+        
+          <li class="module"><a href="../Neapolitan/Factory.html">Neapolitan::Factory</a></li>
+        
+          <li class="class"><a href="../Neapolitan/Part.html">Neapolitan::Part</a></li>
+        
+          <li class="class"><a href="../Neapolitan/Rendering.html">Neapolitan::Rendering</a></li>
+        
+          <li class="class"><a href="../Neapolitan/Template.html">Neapolitan::Template</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+    </div>
+
+    <div id="validator-badges">
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Newfish</a> 1.3.0
+      <br/><br/>
+    </div>
+  </div>
+
+  <div id="documentation">
+
+    <div id="description">
+      
+        <h1>Rendering</h1>
+      
+
+      <p>
+<a href="Template.html">Template</a> <a href="Rendering.html">Rendering</a>
+</p>
+
+    </div>
+
+    <!-- Constants -->
+    
+
+    <!-- Attributes -->
+    
+    <div id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="template-attribute-method" class="method-detail">
+        <a name="template"></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">template</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="data-attribute-method" class="method-detail">
+        <a name="data"></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">data</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+Source of data, can either be an Hash, Binding or Object.
+</p>
+        
+        </div>
+      </div>
+      
+      <div id="block-attribute-method" class="method-detail">
+        <a name="block"></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">block</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- Methods -->
+    
+    <div id="public-class-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="new-method" class="method-detail ">
+        <a name="method-c-new"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">new</span><span
+            class="method-args">(template, data, &block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="new-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/neapolitan/template.rb, line 100</span>
+100:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">template</span>, <span class="ruby-identifier">data</span>, &amp;<span class="ruby-identifier">block</span>)
+101:       <span class="ruby-ivar">@template</span> = <span class="ruby-identifier">template</span>
+102:       <span class="ruby-ivar">@data</span>     = <span class="ruby-identifier">data</span>
+103:       <span class="ruby-ivar">@block</span>    = <span class="ruby-identifier">block</span>
+104: 
+105:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@block</span>
+106:         <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">data</span>
+107:         <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Hash</span>
+108:           <span class="ruby-identifier">yld</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value str">'yield'</span>)
+109:           <span class="ruby-ivar">@block</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>{ <span class="ruby-identifier">yld</span> } <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">yld</span>
+110:         <span class="ruby-keyword kw">end</span>
+111:         <span class="ruby-ivar">@block</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>{<span class="ruby-value str">''</span>} <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@block</span>
+112:       <span class="ruby-keyword kw">end</span>
+113: 
+114:       <span class="ruby-identifier">render</span>
+115:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+    <div id="public-instance-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="header-method" class="method-detail ">
+        <a name="method-i-header"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">header</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="header-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/neapolitan/template.rb, line 135</span>
+135:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">header</span>
+136:       <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">header</span>
+137:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="summary-method" class="method-detail ">
+        <a name="method-i-summary"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">summary</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Summary is the rendering of the first part.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="summary-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/neapolitan/template.rb, line 129</span>
+129:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">summary</span>
+130:       <span class="ruby-comment cmt">#render unless @output</span>
+131:       <span class="ruby-ivar">@summary</span>
+132:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="to-a-method" class="method-detail ">
+        <a name="method-i-to_a"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">to_a</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Renderings of each part.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="to-a-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/neapolitan/template.rb, line 123</span>
+123:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_a</span>
+124:       <span class="ruby-comment cmt">#render unless @output</span>
+125:       <span class="ruby-ivar">@renders</span>
+126:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="to-s-method" class="method-detail ">
+        <a name="method-i-to_s"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="to-s-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/neapolitan/template.rb, line 117</span>
+117:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+118:       <span class="ruby-comment cmt">#render unless @output</span>
+119:       <span class="ruby-ivar">@output</span>
+120:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+    <div id="private-instance-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="render-method" class="method-detail ">
+        <a name="method-i-render"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">render</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="render-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/neapolitan/template.rb, line 141</span>
+141:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">render</span>
+142:       <span class="ruby-ivar">@renders</span> = <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">parts</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">render</span>(<span class="ruby-ivar">@data</span>, &amp;<span class="ruby-ivar">@block</span>) }
+143:       <span class="ruby-ivar">@summary</span> = <span class="ruby-ivar">@renders</span>.<span class="ruby-identifier">first</span>
+144:       <span class="ruby-ivar">@output</span>  = <span class="ruby-ivar">@renders</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
+145:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+
+  </div>
+
+
+  <div id="rdoc-debugging-section-dump" class="debugging-section">
+  
+    <p>Disabled; run with --debug to generate this.</p>
+  
+  </div>
+
+</main>
+</body>
+</html>
+
