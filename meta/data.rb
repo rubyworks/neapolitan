@@ -1,6 +1,6 @@
 Object.__send__(:remove_const, :VERSION) if Object.const_defined?(:VERSION)      # becuase Ruby 1.8~ gets in the way
 
-module Chocolates
+module Neapolitan
 
   DIRECTORY = File.dirname(__FILE__)
 

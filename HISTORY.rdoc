@@ -1,16 +1,14 @@
 = RELEASE HISTORY
 
-== 0.5 / 2008-10-25
+== 0.2.0 / 2010-09-14
 
-Brite (formerly Webrite) has been completely rewritten from the ground-up,
-applying a number of ideas gathered from other systems and adding further
-innovations. This is still an early release, and in need of features
-and overt tire-kicking, but hey I'm already using to generate a pretty
-damn nice looking site.
+Renamed project from "Chocolates" to "Neapolitan".
+
+
+== 0.1.0 / 2008-10-25
+
+Not an offical release. This is the first usable version of Chocolates.
 
 Changes:
 
-* 1 Monumentously Important Enhancment
-
-    * Happy Rebirthday!
-
+* Happy Birthday!

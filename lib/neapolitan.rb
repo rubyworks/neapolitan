@@ -1,2 +1,2 @@
-require 'chocolates/meta/data'
-require 'chocolates/document'
+require 'neapolitan/meta/data'
+require 'neapolitan/document'

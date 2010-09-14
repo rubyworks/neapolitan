@@ -1,13 +1,13 @@
-= Chocolates
+= Neapolitan
 
-* home: http://rubyworks.github.com/chocolates
-* source: http://github.com/rubyworks/chocolates
+* home: http://rubyworks.github.com/neapolitan
+* code: http://github.com/rubyworks/neapolitan
 
 
 == DESCRIPTION
 
 There are many markup and templating systems in the
-world. Why be limited to just one? Chocolates gives
+world. Why be limited to just one? Neapolitan gives
 you a whole box to pick from.
 
 
@@ -15,18 +15,19 @@ you a whole box to pick from.
 
 * All the variety of a Whitman's Sampler.
 * And all the ease of a Hershey's K.I.S.S.
+* Website uses pretty colors ;)
 
 
 == SYNOPSIS
 
-For now please see the Chocolates website and API documentation.
+For now please see the Neapolitan website and API documentation.
 
 
 == HOW TO INSTALL
 
 You know the routine ;)
 
-  $ sudo gem install chocolates
+  $ sudo gem install neapolitan
 
 If you're old fashion and want to install to a site
 location, see Setup.rb (http://protuils.github.com/setup).
@@ -34,8 +35,12 @@ location, see Setup.rb (http://protuils.github.com/setup).
 
 == COPYRIGHT/LICENSE
 
-Chocolates is Copyright (c) 2010 Thomas Sawyer
+Neapolitan, Copyright (c) 2010 Thomas Sawyer
 
-It is distributed under the terms of the MIT license.
+Neapolitan is distributed under the terms of the Apache License v2.0.
 
+THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.
 

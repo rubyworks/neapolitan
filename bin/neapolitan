@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require 'neapolitan/command'
+Neapolitan::Command.main(*ARGV)

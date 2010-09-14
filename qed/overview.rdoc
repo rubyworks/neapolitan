@@ -1,12 +1,12 @@
-= Example Choclates Document
+= Example Neapolitan Document
 
-Here is an example choclates file, 'example.choc':
+Here is an example neapolitan file, 'example.choc':
 
     extension: html
 
     --- rdoc erb
 
-    = Yummy Choclate 
+    = Yummy Vanilla
 
     Hi <%= name %>,
 
@@ -14,7 +14,7 @@ Here is an example choclates file, 'example.choc':
 
     --- coderay.ruby
 
-      %{c h o c o l a t e s}.each do |letter|
+      %{S t r a w b e r r y}.each do |letter|
         puts "Give me a #{letter}!"
       end
 
@@ -29,7 +29,7 @@ Here is an example choclates file, 'example.choc':
     --- textile
 
     |                | 2009 | 2010 |
-    | Has Choclates? |  No  | Yes! |
+    | Has Choclate?  |  No  | Yes! |
 
     --- markdown
 
@@ -39,19 +39,19 @@ Here is an example choclates file, 'example.choc':
 
 Require the library.
 
-    require 'chocolates'
+    require 'neapolitan'
 
-= Reading a Cholcates File
+= Reading a Neapolitan File
 
-Load our example template[fixtures/example.choc].
+Load our example template[fixtures/example.npt].
 
-    file = "qed/fixtures/example.choc"
+    file = "qed/fixtures/example.npt"
 
-    document = Chocolates::Document.new(file)
+    document = Neapolitan::Document.new(file)
 
 = Rendering Data Sources
 
-Chocolates uses Malt on the backend. Malt supports a three separate ways to pass
+Neapolitan uses Malt on the backend. Malt supports a three separate ways to pass
 data into a template.
 
 The most obvious data source is a Hash.

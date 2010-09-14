@@ -2,10 +2,10 @@ require 'neapolitan/template'
 
 module Neapolitan
 
-  # = Chocolates Document
+  # = Neapolitan Document
   #
   # The Document class encapsulates a file which
-  # can be then be rendered via a Chocolates::Template.
+  # can be then be rendered via a Neapolitan::Template.
   class Document
 
     # File path.
@@ -16,7 +16,7 @@ module Neapolitan
 
     # New Document object.
     #
-    # file    - path to chocolates formatted file
+    # file    - path to neapolitan formatted file
     # options - configuration passed on to the Template class
     #
     # Returns a new Document object.
