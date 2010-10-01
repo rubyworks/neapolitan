@@ -42,7 +42,9 @@
 
 <div id="header">
   <div class="title">
-    <img src="assets/images/logo.jpg" align="right" height="220px" />
+    <!-- <img src="assets/images/logo.jpg" align="right" height="220px" /> -->
+    NEAPOLITAN<br/>
+    NEAPOLITAN<br/>
     NEAPOLITAN
   </div>
 </div>
@@ -52,7 +54,7 @@
     <a href="docs/qed/index.html">QED</a> &middot;
     <a href="docs/api/index.html">API</a> &middot;
     <a href="http://groups.google.com/group/rubyworks-mailinglist">MAIL</a> &middot;
-    <a href="http://github.com/rubyworks/neapolitan">CODE</a>
+    <a href="http://github.com/rubyworks/neapolitan">CODE</a> &nbsp;
   </div>
 </div>
 
@@ -99,11 +101,11 @@ A simple example of a .np file:
 </pre>
 
 <p>
-The top portion of any Neapolitan document is the YAML front matter.
-Each subsequent section is started via three dashes ('---') flush
-the left margin followed by the section type. In this example, we
-have a Textile formated section following a Markdown section,
-presumably because Markdown lack support for tables.
+The top portion of any Neapolitan document is the YAML front-matter,
+a set of document properties. Each subsequent section is started via
+three dashes ('---') flush to the left margin followed and by the section's
+type. In this example, we have a Textile formated section following a
+Markdown section, presumably because Markdown lacks support for tables.
 </p>
 
 <p>Section can have more than one type if they are compatible. The
@@ -119,7 +121,7 @@ underlying engine in turn.</p>
 
   Blah blah blah...
 
-  Wirtten on <%= date %>.
+  Wirtten on &lt;%= date %&gt;.
 </pre>
 
 <p>
@@ -147,21 +149,20 @@ PURPOSE.</p>
 
 <div id="footer">
 <div class="page">
-  <br/>
 
-  <script type="text/javascript"><!--
-  google_ad_client = "pub-1126154564663472";
-  /* PROUTILS 09-10-14 728x90 */
-  google_ad_slot = "0711173189";
-  google_ad_width = 728;
-  google_ad_height = 90;
-  //-->
-  </script>
-  <script type="text/javascript"
-  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-  </script>
-
-  <br/><br/>
+  <div class="ad">
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-1126154564663472";
+    /* PROUTILS 09-10-14 728x90 */
+    google_ad_slot = "0711173189";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+  </div>
 
   Copyright (c) 2009,2010 Thomas Sawyer <br/>
 </div>

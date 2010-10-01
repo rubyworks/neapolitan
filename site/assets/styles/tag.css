@@ -33,7 +33,7 @@ h2 {
 
 /* ((((( CLASSES ))))) */
 
-.page { margin: 0 auto; width: 720px; }
+.page { margin: 0 auto; width: 736px; }
 
 .content { padding: 0; }
 
@@ -44,6 +44,11 @@ h2 {
 
 .heading .date  { font-size: 0.7em; }
 
+.ad {
+ padding: 0; margin: 45px 0 20px 0;
+ border: 2px solid #ccc;
+ width: 728px; height: 90px;
+}
 
 /* [[[[[ ID STYLES ]]]]] */
 
@@ -54,13 +59,13 @@ h2 {
   padding: 20px 0;
   text-align: center;
   font-size: 15px;
-  font-weight: bold;
+  font-weight: normal;
   font-variant: small-caps;
   color: tan;
 }
 
-#menu a { color: #644; }
-#menu a:hover { color: black; text-decoration: none; }
+#menu a { color: #644; padding: 0 10px; }
+#menu a:hover { color: pink; text-decoration: none; }
 
 /* header */
 
@@ -76,18 +81,18 @@ h2 {
 }
 
 #header .title {
-  color: #fff;
-  padding-top: 88px;
+  color: #eee;
+  padding-top: 42px;
   text-align: left;
   font-family: times;
-  font-size: 200px; text-align: center; font-weight: bold;
-  line-height: 42px; letter-spacing: -10px; 
+  font-size: 90px; text-align: center; font-weight: bold;
+  line-height: 42px; letter-spacing: 15px; 
 }
 
 /* footer */
 
 #footer {
-  padding: 20px 0 40px 0;
+  padding: 10px 0 20px 0;
   font-size: 8px;
   font-weight: bold; 
   background: #ffbbd2;
