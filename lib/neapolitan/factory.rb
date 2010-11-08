@@ -4,39 +4,65 @@ require 'malt'
 module Neapolitan
 
   # Controls rendering to a variety of back-end templating
-  # and markup systems.
+  # and markup systems via Malt.
   #
-  module Factory
-    extend self
+  class Factory
 
     #
-    def render(format, text, source, &yld) 
-      #table = {}
-      #scope = Object.new
+    attr :types
 
-      case source
-      when Hash
-        db = source
-      when Binding
-        db = source
-      else # object scope
-        db = source
-      end
+    #
+    def initialize(options={})
+      @types = options[:types]
+    end
 
+    #
+    def render(text, format, data, &yld) 
       case format
       when /^coderay/
         coderay(text, format)
       when /^syntax/
         syntax(text, format)
       else
-        doc = Malt.text(text, :format=>format.to_sym)
-        doc.render(db, &yld)
-        #if engine = Tilt[format]
-        #  engine.new{text}.render(scope, table, &yld)
-        #else
-        #  text
-        #end
+        render_via_malt(text, format, data, &yld)
       end
+    end
+
+    #
+    def render_via_malt(text, format, data, &yld)
+      doc = malt.text(text, :type=>format.to_sym)
+      doc.render(data, &yld)
+    end
+
+    #
+    def render_via_tilt(text, format, data, &yld)
+      if engine = Tilt[format]
+        case data
+        when Hash
+          scope = Object.new
+          table = data
+        when Binding
+          scope = data.eval('self')
+          table = {}
+        else # object scope
+          scope = data
+          table = {}
+        end
+        engine.new{text}.render(scope, table, &yld)
+      else
+        text
+      end
+    end
+
+    #
+    def malt
+      @malt ||= (
+        if types && !types.empty?
+          Malt::Machine.new(:types=>types)
+        else
+          Malt::Machine.new
+        end
+      )
     end
 
     #
@@ -131,13 +157,25 @@ module Neapolitan
     end
 =end
 
-    begin
-      require 'rdoc/markup'
-      require 'rdoc/markup/to_html'
-    rescue LoadError
+    private
+
+    def require_rdoc
+      begin
+        require 'rdoc/markup'
+        require 'rdoc/markup/to_html'
+      rescue LoadError
+      end
+    end
+
+    public
+
+    #
+    def self.render(text, format, data, &yld) 
+      new.render(text, format, data, &yld)
     end
 
   end
+
 
 =begin
   # = Clean Rendering Context

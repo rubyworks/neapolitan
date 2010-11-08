@@ -1,12 +1,10 @@
-require 'neapolitan/factory'
-
 module Neapolitan
 
-  # A Part is the section of a page. Pages can be segmented into
+  # A part is a section of a template. Templates can be segmented into
   # parts using the '--- FORMAT' notation.
   class Part
 
-    # Markup format (html, rdoc, markdown, textile)
+    # Rendering formats (html, rdoc, markdown, textile, etc.)
     attr :formats
 
     # Body of text as given in the part.
@@ -14,20 +12,8 @@ module Neapolitan
 
     #
     def initialize(text, *formats)
-      @text    = text
-      @formats = formats
-    end
-
-    #
-    def render(data, &block)
-      formats.inject(text) do |rendering, format|
-        factory.render(format, rendering, data, &block)
-      end
-    end
-
-    #
-    def factory
-      Factory
+      @text     = text
+      @formats  = formats
     end
 
   end

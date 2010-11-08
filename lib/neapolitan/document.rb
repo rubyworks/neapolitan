@@ -49,13 +49,19 @@ module Neapolitan
       @template.render(data, &block)
     end
 
-    # TODO: how to handle extension?
-    def save(*path_and_data, &block)
-      data = Hash===path_and_data.last ? path_and_data.pop : {}
-      path = path_and_data
+    # :call-seq:
+    #   save(data={}, &block)
+    #   save(file, data={}, &block)
+    #
+    def save(*args, &block)
+      data = Hash===args.last ? args.pop : {}
+      path = args.first
 
       rendering = render(data, &block)
-      extension = rendering.header['extension'] || '.html'
+
+      path = path || rendering.header['file']
+
+      path = path || file.chomp(File.extname(file))
 
       path = Dir.pwd unless path
       if File.directory?(path)
@@ -67,7 +73,7 @@ module Neapolitan
       if $DRYRUN
         $stderr << "[DRYRUN] write #{fname}"
       else
-        File.open(fname, 'w'){ |f| f << rendering.to_s }
+        File.open(file, 'w'){ |f| f << rendering.to_s }
       end
     end
 

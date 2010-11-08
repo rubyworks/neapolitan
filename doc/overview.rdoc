@@ -1,8 +1,8 @@
 = Example Neapolitan Document
 
-Here is an example neapolitan file, 'example.choc':
+Here is an example Neapolitan template, 'example.npt':
 
-    extension: html
+    file: example.html
 
     --- rdoc erb
 
@@ -43,11 +43,16 @@ Require the library.
 
 = Reading a Neapolitan File
 
-Load our example template[fixtures/example.npt].
+To load our example template, we can either pass a +File+ object to the 
++Template+ initializer.
 
-    file = "qed/fixtures/example.npt"
+    path = "example.npt"
 
-    document = Neapolitan::Document.new(file)
+    template = Neapolitan::Template.new(File.new(path))
+
+Or we can use the shortcut +file+ method.
+
+    template = Neapolitan.file(path)
 
 = Rendering Data Sources
 
@@ -58,7 +63,7 @@ The most obvious data source is a Hash.
 
     data = {:name=>"Tom"}
 
-    text = document.render(data).to_s
+    text = template.render(data).to_s
 
     text.assert =~ /Hi Tom/
 
@@ -66,16 +71,16 @@ Templates can also be rendered given a Binding.
 
     name = "Huck"
 
-    text = document.render(binding).to_s
+    text = template.render(binding).to_s
 
     text.assert =~ /Hi Huck/
 
-And lastly, they can be renderedwith the scope of any other type of Object,
+Lastly, they can be rendered with the scope of any other type of Object,
 including an instance of a Struct.
 
     scope = Struct.new(:name).new("Becky")
 
-    text = document.render(scope).to_s
+    text = template.render(scope).to_s
 
     text.assert =~ /Hi Becky/
 
