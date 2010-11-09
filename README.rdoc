@@ -1,5 +1,7 @@
 = Neapolitan
 
+Copyright (c) 2010 Thomas Sawyer
+
 * home: http://rubyworks.github.com/neapolitan
 * code: http://github.com/rubyworks/neapolitan
 
@@ -20,7 +22,7 @@ you a whole box to pick from.
 
 == SYNOPSIS
 
-For now please see the Neapolitan website and API documentation.
+For now please see the Neapolitan website and online documentation.
 
 
 == HOW TO INSTALL
