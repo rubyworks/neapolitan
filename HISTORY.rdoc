@@ -1,8 +1,26 @@
 = RELEASE HISTORY
 
+== 0.3.0 / 2010-11-09
+
+This release entails a fairly major overhaul of the API. Primarily, the
+`Document` class has been removed, so the `Template` class now handles
+all cases.
+
+Changes:
+
+* Deprecate Document class, in favor of single Template class interface.
+* Deprecate Command class and move code to class method(s) of Neapolitan.
+* Add #select and #reject methods to Template class.
+
+
 == 0.2.0 / 2010-09-14
 
-Renamed project from "Chocolates" to "Neapolitan".
+This release renames project from "Chocolates" to "Neapolitan". It's also
+the first release that is mature enough for general use.
+
+Changes:
+
+* Renamed project from "chocolates" to "neapolitan".
 
 
 == 0.1.0 / 2008-10-25
