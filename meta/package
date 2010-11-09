@@ -1,13 +1,12 @@
 name    : neapolitan
-date    : 2010-09-14
-version : 0.2.0
+date    : 2010-11-09
+version : 0.3.0
 
 requires:
   - malt
-  - rdiscount (optional, development)
-  - redcloth  (optional, development)
-  - haml      (optional, development)
-  - rdoc 2.5+ (optional, development, document)
   - syckle    (build)
   - qed       (test)
-
+  - rdiscount (optional, test)
+  - redcloth  (optional, test)
+  - rdoc 2.5+ (optional, test, document)
+ 

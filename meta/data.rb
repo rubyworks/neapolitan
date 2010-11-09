@@ -1,27 +1,26 @@
-Object.__send__(:remove_const, :VERSION) if Object.const_defined?(:VERSION)      # becuase Ruby 1.8~ gets in the way
-
 module Neapolitan
 
-  DIRECTORY = File.dirname(__FILE__)
-
-  def self.gemfile
-    @gemfile ||= (
+  def self.package
+    @package ||= (
       require 'yaml'
-      YAML.load(File.new(DIRECTORY + '/gemfile'))
+      YAML.load(File.new(File.dirname(__FILE__) + '/package'))
     )
   end
 
   def self.profile
     @profile ||= (
       require 'yaml'
-      YAML.load(File.new(DIRECTORY + '/profile'))
+      YAML.load(File.new(File.dirname(__FILE__) + '/profile'))
     )
   end
 
   def self.const_missing(name)
     key = name.to_s.downcase
-    gemfile[key] || profile[key] || super(name)
+    package[key] || profile[key] || super(name)
   end
 
 end
+
+# Becuase Ruby 1.8~ gets in the way
+Object.__send__(:remove_const, :VERSION) if Object.const_defined?(:VERSION)
 

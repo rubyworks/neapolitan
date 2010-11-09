@@ -1,11 +1,11 @@
 #!mast -x Syckfile bin lib meta qed test [A-Z]*
 bin/neapolitan
 lib/neapolitan/meta/data.rb
-lib/neapolitan/meta/gemfile
+lib/neapolitan/meta/package
 lib/neapolitan/meta/profile
 lib/neapolitan.rb
 meta/data.rb
-meta/gemfile
+meta/package
 meta/profile
 HISTORY.rdoc
 LICENSE
