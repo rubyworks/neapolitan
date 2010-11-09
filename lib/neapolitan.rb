@@ -5,8 +5,13 @@ require 'malt'
 module Neapolitan
 
   #
-  def self.new(source, options={})
+  def self.load(source, options={})
     Template.new(source, options)
+  end
+
+  #
+  def self.text(source, options={})
+    Template.new(source.to_s, options)
   end
 
   #
@@ -78,7 +83,7 @@ module Neapolitan
       end
     end
 
-    # Rejection procedure.
+    # Rejection list or procedure.
     def reject(&block)
       @reject = block if block
       @reject
@@ -135,7 +140,9 @@ module Neapolitan
 
   private
 
+    #--
     # TODO: Should a stencil be applied once to the entire document?
+    #++
     def parse
       @parts = []
 
@@ -178,7 +185,7 @@ module Neapolitan
 
       case reject
       when Array
-        formats = formats - reject
+        formats = formats - reject.map{|r|r.to_s}
       when Proc
         formats = formats.reject(&reject)
       end
@@ -247,7 +254,6 @@ module Neapolitan
   # Controls rendering to a variety of back-end templating
   # and markup systems via Malt.
   class Factory
-
     #
     attr :types
 
@@ -374,6 +380,8 @@ module Neapolitan
   # TODO: Save to output.
   #++
   def self.option_parser(options)
+    require 'optparse'
+
     OptionParser.new do |opt|
       opt.banner = "neapolitan [file1 file2 ...]"
       #opt.on("--output", "-o [PATH]", "save output to specified directory") do |path|
