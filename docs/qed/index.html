@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Neapolitan Overview</title>
+  <title>Neapolitan</title>
 
   <!-- TODO: most of the css before the '*' can be removed. -->
 
@@ -131,7 +131,7 @@
     <div id="header">
       <img src="img/icon/book.jpg" align="left" style="padding-right: 10px;" alt=""/>
 
-      <div class="title">Neapolitan Overview</div>
+      <div class="title">Neapolitan</div>
 
       <h1>Table of Contents</h1>
 
@@ -140,12 +140,13 @@
     </div>
 
     <div id="content">
-      <h1>Example Neapolitan Document</h1>
+      <h1>Overview</h1>
+<h2>Example Neapolitan Document</h2>
 <p>
-Here is an example neapolitan file, &#8216;example.choc&#8217;:
+Here is an example Neapolitan template, &#8216;vanilla.np&#8217;:
 </p>
 <pre>
-    extension: html
+    output: vanilla.html
 
     --- rdoc erb
 
@@ -157,7 +158,7 @@ Here is an example neapolitan file, &#8216;example.choc&#8217;:
 
     --- coderay.ruby
 
-      %{S t r a w b e r r y}.each do |letter|
+      %{v a n i l l a}.each do |letter|
         puts &quot;Give me a #{letter}!&quot;
       end
 
@@ -172,29 +173,36 @@ Here is an example neapolitan file, &#8216;example.choc&#8217;:
     --- textile
 
     |                | 2009 | 2010 |
-    | Has Choclate?  |  No  | Yes! |
+    | Has Vanilla?   |  No  | Yes! |
 
     --- markdown
 
     As you can see. It's all _fun_ and _games_ here.
 </pre>
-<h1>Loading the Library</h1>
+<h2>Loading the Library</h2>
 <p>
 Require the library.
 </p>
 <pre>
     require 'neapolitan'
 </pre>
-<h1>Reading a Neapolitan File</h1>
+<h2>Reading a Neapolitan File</h2>
 <p>
-Load our example <a href="http://fixtures/example.npt">template</a>.
+To load our example template, we can either pass a <tt>File</tt> object to
+the  <tt>Template</tt> initializer.
 </p>
 <pre>
-    file = &quot;qed/fixtures/example.npt&quot;
+    path = &quot;vanilla.np&quot;
 
-    document = Neapolitan::Document.new(file)
+    template = Neapolitan::Template.new(File.new(path))
 </pre>
-<h1>Rendering Data Sources</h1>
+<p>
+Or we can use the shortcut <tt>file</tt> method.
+</p>
+<pre>
+    template = Neapolitan.file(path)
+</pre>
+<h2>Rendering Data Sources</h2>
 <p>
 Neapolitan uses Malt on the backend. Malt supports a three separate ways to
 pass data into a template.
@@ -205,7 +213,7 @@ The most obvious data source is a Hash.
 <pre>
     data = {:name=&gt;&quot;Tom&quot;}
 
-    text = document.render(data).to_s
+    text = template.render(data).to_s
 
     text.assert =~ /Hi Tom/
 </pre>
@@ -215,20 +223,58 @@ Templates can also be rendered given a Binding.
 <pre>
     name = &quot;Huck&quot;
 
-    text = document.render(binding).to_s
+    text = template.render(binding).to_s
 
     text.assert =~ /Hi Huck/
 </pre>
 <p>
-And lastly, they can be renderedwith the scope of any other type of Object,
+Lastly, they can be rendered with the scope of any other type of Object,
 including an instance of a Struct.
 </p>
 <pre>
     scope = Struct.new(:name).new(&quot;Becky&quot;)
 
-    text = document.render(scope).to_s
+    text = template.render(scope).to_s
 
     text.assert =~ /Hi Becky/
+</pre>
+
+<h1>FAQ</h1>
+<ol style="display: upper-alpha">
+<li><p>
+How do I limit the section formats that can be used?
+</p>
+</li>
+<li><p>
+There are two methods that can be used limit the formats that
+</p>
+</li>
+</ol>
+<p>
+a Neapolitan template can use, namely, #select and #reject. After creating
+a Template object, use the #select and/or the #reject methods to filter out
+any unwanted formats.
+</p>
+<pre>
+    template = Neapolitan.file('example.np')
+
+    template.reject{ |format| %w{liquid}.include?(format) }
+
+    template.render(:name=&gt;&quot;Tom&quot;)
+</pre>
+<p>
+These methods can be used for more aggressive validation by raising an
+error.
+</p>
+<pre>
+    template = Neapolitan.file('example.np')
+
+    expect TypeError do
+      template.reject do |format|
+        raise TypeError if %w{liquid}.include?(format)
+        false
+      end
+    end
 </pre>
 
 
