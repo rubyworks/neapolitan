@@ -40,7 +40,7 @@ module Neapolitan
     attr :common
 
     # Rendering formats to disallow.
-    attr :reject
+    #attr :reject
 
     # Header data, also known as <i>front matter</i>.
     attr :header
@@ -69,7 +69,7 @@ module Neapolitan
       @stencil = options[:stencil]
       @default = options[:default] || 'html'
       @common  = options[:common]
-      @reject  = options[:reject]
+      #@reject  = options[:reject]
 
       parse
     end
@@ -83,10 +83,24 @@ module Neapolitan
       end
     end
 
-    # Rejection list or procedure.
+    # Rejection formats.
+    #--
+    # TODO: filter common and default
+    #++
     def reject(&block)
-      @reject = block if block
-      @reject
+      parts.each do |part|
+        part.formats.reject!(&block)
+      end
+    end
+
+    # Select formats.
+    #--
+    # TODO: filter common and default
+    #++
+    def select(&block)
+      parts.each do |part|
+        part.formats.select!(&block)
+      end
     end
 
     # Unrendered template parts.
@@ -120,9 +134,8 @@ module Neapolitan
 
       rendering = render(data, &block)
 
-      path = path || rendering.header['file']
-
-      path = path || file.chomp(File.extname(file))
+      path = path || rendering.header['output']
+      path = path || path.chomp(File.extname(file))
 
       path = Dir.pwd unless path
       if File.directory?(path)
@@ -183,12 +196,12 @@ module Neapolitan
       formats = default if formats.empty?
       formats = [formats, common].flatten.compact
 
-      case reject
-      when Array
-        formats = formats - reject.map{|r|r.to_s}
-      when Proc
-        formats = formats.reject(&reject)
-      end
+      #case reject
+      #when Array
+      #  formats = formats - reject.map{|r|r.to_s}
+      #when Proc
+      #  formats = formats.reject(&reject)
+      #end
 
       formats = [stencil, *formats].compact
 
@@ -354,8 +367,8 @@ module Neapolitan
 
     option_parser(options).parse!(argv)
 
-    if options[:source]
-      data = YAML.load(File.new(@data_file))
+    if src = options[:source]
+      data = YAML.load(File.new(src))
     else
       data = {} #@source ||= YAML.load(STDIN.read)
     end
