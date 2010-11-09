@@ -1,12 +1,6 @@
-Tue, 14 Sep 2010 12:59:19 -0400
-lib/neapolitan/config.rb	Tue, 14 Sep 2010 12:32:11 -0400
-lib/neapolitan/command.rb	Tue, 14 Sep 2010 12:32:07 -0400
-lib/neapolitan/factory.rb	Tue, 14 Sep 2010 12:32:22 -0400
-HISTORY.rdoc	Tue, 14 Sep 2010 12:58:11 -0400
-LICENSE	Thu, 06 May 2010 06:03:52 -0400
-lib/neapolitan.rb	Tue, 14 Sep 2010 12:45:40 -0400
-lib/neapolitan/part.rb	Tue, 14 Sep 2010 12:32:38 -0400
-bin/neapolitan	Tue, 14 Sep 2010 12:51:46 -0400
-lib/neapolitan/document.rb	Tue, 14 Sep 2010 12:46:38 -0400
-README.rdoc	Tue, 14 Sep 2010 12:54:37 -0400
-lib/neapolitan/template.rb	Tue, 14 Sep 2010 12:32:30 -0400
+Tue, 09 Nov 2010 10:03:15 -0500
+HISTORY.rdoc	Tue, 09 Nov 2010 09:58:32 -0500
+LICENSE	Tue, 09 Nov 2010 09:59:13 -0500
+lib/neapolitan.rb	Tue, 09 Nov 2010 09:47:48 -0500
+bin/neapolitan	Tue, 09 Nov 2010 06:50:09 -0500
+README.rdoc	Tue, 09 Nov 2010 10:00:39 -0500
