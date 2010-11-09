@@ -1,0 +1,27 @@
+= FAQ
+
+Q. How do I limit the section formats that can be used?
+
+A. There are two methods that can be used limit the formats that
+a Neapolitan template can use, namely, #select and #reject.
+After creating a Template object, use the #select and/or the #reject
+methods to filter out any unwanted formats.
+
+    template = Neapolitan.file('example.np')
+
+    template.reject{ |format| %w{liquid}.include?(format) }
+
+    template.render(:name=>"Tom")
+
+These methods can be used for more aggressive validation by raising
+an error.
+
+    template = Neapolitan.file('example.np')
+
+    expect TypeError do
+      template.reject do |format|
+        raise TypeError if %w{liquid}.include?(format)
+        false
+      end
+    end
+

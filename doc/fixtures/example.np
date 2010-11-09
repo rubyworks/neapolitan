@@ -10,7 +10,7 @@ I know you want some of that yummy stuff.
 
 --- coderay.ruby
 
-  %{c h o c o l a t e s}.each do |letter|
+  %{c h o c o l a t e}.each do |letter|
     puts "Give me a #{letter}!"
   end
 

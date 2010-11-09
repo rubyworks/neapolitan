@@ -1,8 +1,10 @@
-= Example Neapolitan Document
+= Overview
 
-Here is an example Neapolitan template, 'example.npt':
+== Example Neapolitan Document
 
-    file: example.html
+Here is an example Neapolitan template, 'vanilla.np':
+
+    output: vanilla.html
 
     --- rdoc erb
 
@@ -14,7 +16,7 @@ Here is an example Neapolitan template, 'example.npt':
 
     --- coderay.ruby
 
-      %{S t r a w b e r r y}.each do |letter|
+      %{v a n i l l a}.each do |letter|
         puts "Give me a #{letter}!"
       end
 
@@ -29,24 +31,24 @@ Here is an example Neapolitan template, 'example.npt':
     --- textile
 
     |                | 2009 | 2010 |
-    | Has Choclate?  |  No  | Yes! |
+    | Has Vanilla?   |  No  | Yes! |
 
     --- markdown
 
     As you can see. It's all _fun_ and _games_ here.
 
-= Loading the Library
+== Loading the Library
 
 Require the library.
 
     require 'neapolitan'
 
-= Reading a Neapolitan File
+== Reading a Neapolitan File
 
 To load our example template, we can either pass a +File+ object to the 
 +Template+ initializer.
 
-    path = "example.npt"
+    path = "vanilla.np"
 
     template = Neapolitan::Template.new(File.new(path))
 
@@ -54,7 +56,7 @@ Or we can use the shortcut +file+ method.
 
     template = Neapolitan.file(path)
 
-= Rendering Data Sources
+== Rendering Data Sources
 
 Neapolitan uses Malt on the backend. Malt supports a three separate ways to pass
 data into a template.
