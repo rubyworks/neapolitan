@@ -1,12 +1,9 @@
-#!mast -x Syckfile bin lib meta qed test [A-Z]*
+#!mast -x Syckfile -x PROFILE .ruby bin lib man qed spec test [A-Z]*
+.ruby
 bin/neapolitan
-lib/neapolitan/meta/data.rb
-lib/neapolitan/meta/package
-lib/neapolitan/meta/profile
+lib/neapolitan/meta
 lib/neapolitan.rb
-meta/data.rb
-meta/package
-meta/profile
 HISTORY.rdoc
 LICENSE
 README.rdoc
+VERSION
