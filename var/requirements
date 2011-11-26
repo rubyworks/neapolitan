@@ -1,0 +1,8 @@
+---
+- malt
+- detroit   (build)
+- qed       (test)
+- rdiscount (optional, test)
+- redcloth  (optional, test)
+- yard      (optional, test, document)
+

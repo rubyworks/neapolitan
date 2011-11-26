@@ -1,0 +1,3 @@
+Neapolitan is a meta-templating engine. Like a candy store it allows you to pick
+and choose from a variety of rendering formats in the construction of a single
+document. Selections include eruby, textile, markdown and many others.
