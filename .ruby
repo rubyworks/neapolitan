@@ -1,58 +1,63 @@
---- 
-name: neapolitan
-company: RubyWorks
-title: Neapolitan
-contact: rubyworks-mailinglist@googlegroups.com
-requires: 
-- group: []
-
-  name: malt
-  version: 0+
-- group: 
+---
+source:
+- var
+authors:
+- name: trans
+  email: transfire@gmail.com
+copyrights: []
+replacements: []
+alternatives: []
+requirements:
+- name: malt
+- name: detroit
+  groups:
   - build
-  name: syckle
-  version: 0+
-- group: 
+  development: true
+- name: qed
+  groups:
   - test
-  name: qed
-  version: 0+
-- group: 
-  - optional
+  development: true
+- name: rdiscount
+  groups:
+  - optional,
   - test
-  name: rdiscount
-  version: 0+
-- group: 
-  - optional
+  development: true
+- name: redcloth
+  groups:
+  - optional,
   - test
-  name: redcloth
-  version: 0+
-- group: 
-  - optional
-  - test
+  development: true
+- name: yard
+  groups:
+  - optional,
+  - test,
   - document
-  name: rdoc
-  version: 2.5+
-resources: 
-  repository: git://github.com/rubyworks/neapolitan.git
-  api: http://rubyworks.github.com/neapolitan/docs/api
-  wiki: http://wiki.github.com/rubyworks/neapolitan
+  development: true
+dependencies: []
+conflicts: []
+repositories:
+- uri: git://github.com/rubyworks/neapolitan.git
+  scm: git
+  name: upstream
+resources:
   home: http://rubyworks.github.com/neapolitan
-  work: http://github.com/rubyworks/neapolitan
-pom_verison: 1.0.0
-manifest: 
-- .ruby
-- bin/neapolitan
-- lib/neapolitan/meta
-- lib/neapolitan.rb
-- HISTORY.rdoc
-- LICENSE
-- README.rdoc
-- VERSION
-version: 0.3.0
-copyright: Copyright (c) 2010 Thomas Sawyer
-licenses: 
-- Apache 2.0
-description: Neapolitan is a meta-templating engine. Like a candy store it allows you to pick and choose from a variety of rendering formats in the construction of a single document. Selections include eruby, textile, markdown and many others.
+  code: http://github.com/rubyworks/neapolitan
+  docs: http://rubydoc.info/gems/neapolitan/frames
+  wiki: http://wiki.github.com/rubyworks/neapolitan
+extra: {}
+load_path:
+- lib
+revision: 0
+created: '2009-08-25'
 summary: Kid in the Candy Store Templating
-authors: 
-- Thomas Sawyer
+title: Neapolitan
+version: 0.3.0
+name: neapolitan
+description: ! 'Neapolitan is a meta-templating engine. Like a candy store it allows
+  you to pick
+
+  and choose from a variety of rendering formats in the construction of a single
+
+  document. Selections include eruby, textile, markdown and many others.'
+organization: rubyworks
+date: '2011-11-26'
