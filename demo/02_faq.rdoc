@@ -1,9 +1,10 @@
 = FAQ
 
-Q. How do I limit the section formats that can be used?
+<b>How do I limit the section formats that can be used?</b>
 
-A. There are two methods that can be used limit the formats that
-a Neapolitan template can use, namely, #select and #reject.
+There are two methods that can be used to limit the formats that
+of a Neapolitan template, namely, #select and #reject.
+
 After creating a Template object, use the #select and/or the #reject
 methods to filter out any unwanted formats.
 
@@ -18,10 +19,33 @@ an error.
 
     template = Neapolitan.file('example.np')
 
-    expect TypeError do
-      template.reject do |format|
-        raise TypeError if %w{liquid}.include?(format)
-        false
-      end
+    template.reject do |format|
+      raise TypeError if %w{liquid}.include?(format)
+      false
     end
+
+    expect TypeError do
+      template.render(:name=>"Tome")
+    end
+
+<b>Why should template formats be listed before markup format?</b>
+
+Consider what happens if have a document section proccessed by RDoc
+before applying templating such as ERB:
+
+  = Example
+
+  Hi, <%= name %>
+
+The result never ends up utilizing ERB properly because RDoc transformed
+the document into:
+
+  <h1>Example</h1>
+
+  Hi, &lt;%= name &gt;
+
+Therefore you should always list the template format before markup formats.
+Of course usually template formats are not used on section by section
+basis in anycase, so this won't be an issue, but it's good to know just
+in case.
 

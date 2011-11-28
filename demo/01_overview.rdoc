@@ -6,7 +6,7 @@ Here is an example Neapolitan template, 'vanilla.np':
 
     output: vanilla.html
 
-    --- rdoc erb
+    --- erb rdoc
 
     = Yummy Vanilla
 
@@ -22,7 +22,7 @@ Here is an example Neapolitan template, 'vanilla.np':
 
       puts "What's that spell?"
 
-    --- html liquid
+    --- liquid html
 
     <quote>
       {{ yield }}

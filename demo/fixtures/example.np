@@ -1,6 +1,6 @@
 extension: html
 
---- rdoc erb
+--- erb rdoc
 
 = Yummy Choclate 
 
@@ -16,7 +16,7 @@ I know you want some of that yummy stuff.
 
   puts "What's that spell?"
 
---- html liquid
+--- liquid html
 
 <quote>
   {{ yield }}
