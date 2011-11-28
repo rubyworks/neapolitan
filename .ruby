@@ -32,6 +32,11 @@ requirements:
   - optional
   - test
   development: true
+- name: coderay
+  groups:
+  - optional
+  - test
+  development: true
 - name: yard
   groups:
   - optional

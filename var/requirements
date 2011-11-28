@@ -5,4 +5,5 @@
 - rdiscount (optional, test)
 - RedCloth  (optional, test)
 - rdoc      (optional, test)
+- coderay   (optional, test)
 - yard      (optional, test, document)
