@@ -86,7 +86,12 @@ module Neapolitan
     attr :common
 
     # Header data, also known as <i>front matter</i>.
-    attr :header
+    attr :metadata
+
+    alias_method :header, :metadata
+
+    #
+    attr :parts
 
     #
     def initialize(source, options={})
@@ -114,19 +119,13 @@ module Neapolitan
 
       @system   = options[:system] || Neapolitan.system || 'malt'
 
-      head, @body = split_text
-
-      data = load_header(head)
-
-      @default  = data.delete('default') || options[:default] || 'html'
-      @common   = data.delete('common')  || options[:common]
-      @stencil  = data.delete('stencil') || options[:stencil]
-
-      @metadata = data.rekey
-
       require @system.to_s
 
-      #parse
+      @default  = options[:default] || 'html'
+      @common   = options[:common]
+      @stencil  = options[:stencil]
+
+      parse
     end
 
     #
@@ -184,9 +183,9 @@ module Neapolitan
       #end
 
       # apply stencil whole-clothe
-      body = apply_stencil(@body, data, &content)
+      #body = apply_stencil(@body, scope, locals, &content)
 
-      parts = parse_parts(body)
+      #parts = parse_parts(body)
 
       parts.each do |part|
         part.formats.reject!(&@reject) if @reject
@@ -207,31 +206,11 @@ module Neapolitan
       Rendering.new(rendered_parts, @metadata)
     end
 
-    # Split template header from rest of template.
-    def split_text
-      t = text.strip
-      if t.start_with?('---')
-        i = t.index('---', 3)
-        h = t[0...i].strip
-        b = t[i..-1]
-      else
-        i = t.index('---')
-        if i
-          h = t[0...i].strip
-          b = t[i..-1]
-        else
-          h = nil
-          b = t
-        end
-      end
-      return h, b
-    end
-
     # Apply stencil whole-clothe.
-    def apply_stencil(body, data, &content)
-      return body unless stencil
-      factory.render(body, stencil, data, &content)
-    end
+    #def apply_stencil(body, scope, locals, &content)
+    #  return body unless stencil
+    #  factory.render(body, stencil, scope, locals, &content)
+    #end
 
     # Save template to disk.
     #
@@ -280,29 +259,28 @@ module Neapolitan
     # could present an issue with the `---` dividers.
 
     #
-    def parse_parts(text)
+    def parse
       parts = text.split(/^\-\-\-/)
 
-      #if sect.size == 1
-      #  @header = {}
-      #  @parts << Part.new(sect[0]) #, *[@stencil, @default].compact.flatten)
-      #else
-        parts.shift if parts.first.strip.empty?
-      # 
-      #  head = sect.shift
-      #  head = YAML::load(head)
-      #  parse_header(head)
-
-      parts.map{ |part| Part.parse(part) }
-    end
-
-    #
-    def load_header(header_text)
-      if header_text
-        YAML::load(header_text)
+      if parts.size == 1
+        data = {}
+        #@parts << Part.new(sect[0]) #, *[@stencil, @default].compact.flatten)
       else
-        {}
+        parts.shift if parts.first.strip.empty?
+        data = YAML::load(parts.first)
+        if Hash === data
+          parts.shift
+        else
+          data = {}
+        end
       end
+
+      @default  = data.delete('default') if data.key?('default')
+      @common   = data.delete('common')  if data.key?('common')
+      @stencil  = data.delete('stencil') if data.key?('stencil')
+      @metadata = data
+
+      @parts = parts.map{ |part| Part.parse(part) }
     end
 
     #
@@ -347,9 +325,6 @@ module Neapolitan
       new(text, *formats)
     end
 
-    # Rendering formats (html, rdoc, markdown, textile, etc.)
-    attr :formats
-
     # Body of text as given in the part.
     attr :text
 
@@ -363,7 +338,12 @@ module Neapolitan
     #
     def initialize(text, *formats)
       @text     = text
-      @formats  = formats
+      @formats  = formats.uniq
+    end
+
+    # Rendering formats (html, rdoc, markdown, textile, etc.)
+    def formats
+      @formats.uniq
     end
   end
 
