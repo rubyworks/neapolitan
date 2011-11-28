@@ -4,4 +4,5 @@
 - qed       (test)
 - rdiscount (optional, test)
 - RedCloth  (optional, test)
+- rdoc      (optional, test)
 - yard      (optional, test, document)

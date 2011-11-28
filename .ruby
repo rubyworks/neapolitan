@@ -27,6 +27,11 @@ requirements:
   - optional
   - test
   development: true
+- name: rdoc
+  groups:
+  - optional
+  - test
+  development: true
 - name: yard
   groups:
   - optional
@@ -60,4 +65,4 @@ description: ! 'Neapolitan is a meta-templating engine. Like a candy store it al
 
   document. Selections include eruby, textile, markdown and many others.'
 organization: rubyworks
-date: '2011-11-27'
+date: '2011-11-28'
