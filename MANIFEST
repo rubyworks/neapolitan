@@ -1,9 +1,17 @@
-#!mast -x Syckfile -x PROFILE .ruby bin lib man qed spec test [A-Z]*
+#!mast .ruby bin demo lib man spec test [A-Z]*.*
 .ruby
 bin/neapolitan
-lib/neapolitan/meta
+demo/01_overview.rdoc
+demo/02_faq.rdoc
+demo/applique/env.rb
+demo/fixtures/example.html
+demo/fixtures/example.np
+demo/fixtures/example.yaml
+lib/neapolitan/cli.rb
+lib/neapolitan/core_ext.rb
+lib/neapolitan/version.rb
 lib/neapolitan.rb
+lib/neapolitan.yml
 HISTORY.rdoc
-LICENSE
+LICENSE.txt
 README.rdoc
-VERSION

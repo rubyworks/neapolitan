@@ -3,6 +3,5 @@
 - detroit   (build)
 - qed       (test)
 - rdiscount (optional, test)
-- redcloth  (optional, test)
+- RedCloth  (optional, test)
 - yard      (optional, test, document)
-

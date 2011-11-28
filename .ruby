@@ -19,18 +19,18 @@ requirements:
   development: true
 - name: rdiscount
   groups:
-  - optional,
+  - optional
   - test
   development: true
-- name: redcloth
+- name: RedCloth
   groups:
-  - optional,
+  - optional
   - test
   development: true
 - name: yard
   groups:
-  - optional,
-  - test,
+  - optional
+  - test
   - document
   development: true
 dependencies: []
@@ -60,4 +60,4 @@ description: ! 'Neapolitan is a meta-templating engine. Like a candy store it al
 
   document. Selections include eruby, textile, markdown and many others.'
 organization: rubyworks
-date: '2011-11-26'
+date: '2011-11-27'
