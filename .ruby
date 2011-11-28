@@ -13,8 +13,17 @@ requirements:
   groups:
   - build
   development: true
+- name: yard
+  groups:
+  - document
+  development: true
 - name: qed
   groups:
+  - test
+  development: true
+- name: coderay
+  groups:
+  - optional
   - test
   development: true
 - name: rdiscount
@@ -32,16 +41,10 @@ requirements:
   - optional
   - test
   development: true
-- name: coderay
+- name: liquid
   groups:
   - optional
   - test
-  development: true
-- name: yard
-  groups:
-  - optional
-  - test
-  - document
   development: true
 dependencies: []
 conflicts: []
