@@ -4,7 +4,6 @@
 - yard      (document)
 - qed       (test)
 - coderay   (optional, test)
-- rdiscount (optional, test)
 - RedCloth  (optional, test)
 - rdoc      (optional, test)
 - liquid    (optional, test)

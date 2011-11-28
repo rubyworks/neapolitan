@@ -26,11 +26,6 @@ requirements:
   - optional
   - test
   development: true
-- name: rdiscount
-  groups:
-  - optional
-  - test
-  development: true
 - name: RedCloth
   groups:
   - optional

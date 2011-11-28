@@ -33,8 +33,6 @@ Here is an example Neapolitan template, 'vanilla.np':
     |                | 2009 | 2010 |
     | Has Vanilla?   |  No  | Yes! |
 
-    --- markdown
-
     As you can see. It's all _fun_ and _games_ here.
 
 == Loading the Library
