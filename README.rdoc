@@ -1,9 +1,11 @@
 = Neapolitan
 
-Copyright (c) 2010 Thomas Sawyer
+{Homepage}[http://rubyworks.github.com/neapolitan] |
+{Development}[http://github.com/rubyworks/neapolitan] |
+{Report Issue}[http://github.com/rubyworks/neapolitan/issues] |
+{Mailing List}[http://groups.google.com/group/rubyworks-mailinglist]
 
-* home: http://rubyworks.github.com/neapolitan
-* code: http://github.com/rubyworks/neapolitan
+{<img src="http://travis-ci.org/rubyworks/neapolitan.png" />}[http://travis-ci.org/rubyworks/neapolitan]
 
 
 == DESCRIPTION
@@ -13,7 +15,7 @@ world. Why be limited to just one? Neapolitan gives
 you a whole box to pick from.
 
 
-== FEATURES/ISSUES
+== FEATURES
 
 * All the variety of a Whitman's Sampler.
 * And all the ease of a Hershey's K.I.S.S.
@@ -22,7 +24,7 @@ you a whole box to pick from.
 
 == SYNOPSIS
 
-For now please see the Neapolitan website and online documentation.
+For now, please see the Neapolitan website and online documentation.
 
 
 == HOW TO INSTALL
@@ -35,11 +37,11 @@ If you're old fashion and want to install to a site
 location, see Setup.rb (http://protuils.github.com/setup).
 
 
-== COPYRIGHT/LICENSE
+== COPYRIGHTS
 
-Neapolitan, Copyright (c) 2010 Thomas Sawyer
+Neapolitan, Copyright (c) 2010 Rubyworks
 
-Neapolitan is distributed under the terms of the Apache License v2.0.
+Neapolitan is distributed under the terms of the *BSD-2-Clause* license.
 
 THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR
 IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
