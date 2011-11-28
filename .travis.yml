@@ -1,5 +1,5 @@
 ---
-script: "bundle exec $testcmd"
+script: "bundle exec qed"
 rvm:
   - 1.8.7
   - 1.9.2
@@ -7,6 +7,4 @@ rvm:
   - ree
   - rbx-2.0
   - jruby
-env:
-  - testcmd="qed"
 
