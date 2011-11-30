@@ -1,5 +1,5 @@
 ---
-- malt
+- malt 0.4.0+
 - detroit   (build)
 - yard      (document)
 - qed       (test)
