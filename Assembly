@@ -10,6 +10,11 @@ github:
 gem:
   active: true
 
+qedoc:
+  files: demo
+  title: Neapolitan Demonstrandum
+  output: web/demo.html
+
 dnote:
   labels: ~
   title: Source Notes
