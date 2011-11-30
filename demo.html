@@ -1,6 +1,7 @@
 <html>
 <head>
-  <title>Neapolitan</title>
+  <title>Neapolitan Demonstrandum</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
 
   <!-- TODO: most of the css before the '*' can be removed. -->
 
@@ -103,15 +104,10 @@
     .title { font-size: 2em; }
   </style>
 
-  <!-- TODO: only include if these files exists -->
-  <link href="../assets/styles/spec.css" type="text/css" rel="stylesheet">
-  <!-- spec.css might be a problem with clobber -->
-  <link href="spec.css" type="text/css" rel="stylesheet">
-
   
 
   <!-- JQuery is needed -->
-  <script src="jquery.js" type="text/javascript" language="javascript"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript" language="javascript"></script>
 
 </head>
 
@@ -120,7 +116,8 @@
   <!-- Side Table of Contents -->
   <div id="sidebar" style="position: fixed; top: 10; right: 10; background: white;">
     <a href="javascript: toc_toggle();">
-      <img src="img/icon/book.jpg" height="30px;" style="border: none;" alt="TOC" align="right"/>
+      <!-- TODO: find a preminatn image on web to use -->
+      <!-- <img src="http://www.cdnjs.com/images/poweredbycloudflare.png" style="border: none;" alt="TOC" align="right"/> -->
     </a>
 
     <div id="toc_side" class="toc">
@@ -129,9 +126,10 @@
 
   <div id="container">
     <div id="header">
-      <img src="img/icon/book.jpg" align="left" style="padding-right: 10px;" alt=""/>
+      <!-- TODO: find a preminatn image on web to use -->
+      <!-- <img src="http://www.cdnjs.com/images/poweredbycloudflare.png" align="left" style="padding-right: 10px;" alt=""/> -->
 
-      <div class="title">Neapolitan</div>
+      <div class="title">Neapolitan Demonstrandum</div>
 
       <h1>Table of Contents</h1>
 
@@ -140,136 +138,143 @@
     </div>
 
     <div id="content">
-      <h1>Overview</h1>
+      
+<h1>Overview</h1>
+
 <h2>Example Neapolitan Document</h2>
-<p>
-Here is an example Neapolitan template, &#8216;vanilla.np&#8217;:
-</p>
-<pre>
-    output: vanilla.html
 
-    --- rdoc erb
+<p>Here is an example Neapolitan template, ‘vanilla.np’:</p>
 
-    = Yummy Vanilla
+<pre>output: vanilla.html
 
-    Hi &lt;%= name %&gt;,
+--- erb rdoc
 
-    I know you want some of that yummy stuff.
+= Yummy Vanilla
 
-    --- coderay.ruby
+Hi &lt;%= name %&gt;,
 
-      %{v a n i l l a}.each do |letter|
-        puts &quot;Give me a #{letter}!&quot;
-      end
+I know you want some of that yummy stuff.
 
-      puts &quot;What's that spell?&quot;
+--- coderay.ruby
 
-    --- html liquid
+  %{v a n i l l a}.each do |letter|
+    puts &quot;Give me a #{letter}!&quot;
+  end
 
-    &lt;quote&gt;
-      {{ yield }}
-    &lt;/quote&gt;
+  puts &quot;What's that spell?&quot;
 
-    --- textile
+--- liquid html
 
-    |                | 2009 | 2010 |
-    | Has Vanilla?   |  No  | Yes! |
+&lt;quote&gt;
+  {{ yield }}
+&lt;/quote&gt;
 
-    --- markdown
+--- textile
 
-    As you can see. It's all _fun_ and _games_ here.
-</pre>
+|                | 2009 | 2010 |
+| Has Vanilla?   |  No  | Yes! |
+
+As you can see. It's all _fun_ and _games_ here.</pre>
+
 <h2>Loading the Library</h2>
-<p>
-Require the library.
-</p>
-<pre>
-    require 'neapolitan'
-</pre>
+
+<p>Require the library.</p>
+
+<pre>require 'neapolitan'</pre>
+
 <h2>Reading a Neapolitan File</h2>
-<p>
-To load our example template, we can either pass a <tt>File</tt> object to
-the  <tt>Template</tt> initializer.
-</p>
-<pre>
-    path = &quot;vanilla.np&quot;
 
-    template = Neapolitan::Template.new(File.new(path))
-</pre>
-<p>
-Or we can use the shortcut <tt>file</tt> method.
-</p>
-<pre>
-    template = Neapolitan.file(path)
-</pre>
+<p>To load our example template, we can either pass a <tt>File</tt> object to
+the  <tt>Template</tt> initializer.</p>
+
+<pre>path = &quot;vanilla.np&quot;
+
+template = Neapolitan::Template.new(File.new(path))</pre>
+
+<p>Or we can use the shortcut <tt>file</tt> method.</p>
+
+<pre>template = Neapolitan.file(path)</pre>
+
 <h2>Rendering Data Sources</h2>
-<p>
-Neapolitan uses Malt on the backend. Malt supports a three separate ways to
-pass data into a template.
-</p>
-<p>
-The most obvious data source is a Hash.
-</p>
-<pre>
-    data = {:name=&gt;&quot;Tom&quot;}
 
-    text = template.render(data).to_s
+<p>Neapolitan uses Malt on the backend. Malt supports a three separate ways to
+pass data into a template.</p>
 
-    text.assert =~ /Hi Tom/
-</pre>
-<p>
-Templates can also be rendered given a Binding.
-</p>
-<pre>
-    name = &quot;Huck&quot;
+<p>The most obvious data source is a Hash.</p>
 
-    text = template.render(binding).to_s
+<pre>data = {:name=&gt;&quot;Tom&quot;}
 
-    text.assert =~ /Hi Huck/
-</pre>
-<p>
-Lastly, they can be rendered with the scope of any other type of Object,
-including an instance of a Struct.
-</p>
-<pre>
-    scope = Struct.new(:name).new(&quot;Becky&quot;)
+text = template.render(data).to_s
 
-    text = template.render(scope).to_s
+text.assert =~ /Hi Tom/</pre>
 
-    text.assert =~ /Hi Becky/
-</pre>
+<p>Templates can also be rendered given a Binding.</p>
+
+<pre>name = &quot;Huck&quot;
+
+text = template.render(binding).to_s
+
+text.assert =~ /Hi Huck/</pre>
+
+<p>Lastly, they can be rendered with the scope of any other type of Object,
+including an instance of a Struct.</p>
+
+<pre>scope = Struct.new(:name).new(&quot;Becky&quot;)
+
+text = template.render(scope).to_s
+
+text.assert =~ /Hi Becky/</pre>
+
 
 <h1>FAQ</h1>
-<p>
-<b>How do I limit the section formats that can be used?</b>
-</p>
-<p>
-There are two methods that can be used limit the formats that a Neapolitan
-template can use, namely, #select and #reject. After creating a Template
-object, use the #select and/or the #reject methods to filter out any
-unwanted formats.
-</p>
-<pre>
-    template = Neapolitan.file('example.np')
 
-    template.reject{ |format| %w{liquid}.include?(format) }
+<p><b>How do I limit the section formats that can be used?</b></p>
 
-    template.render(:name=&gt;&quot;Tom&quot;)
-</pre>
-<p>
-These methods can be used for more aggressive validation by raising an
-error.
-</p>
-<pre>
-    template = Neapolitan.file('example.np')
+<p>There are two methods that can be used to limit the formats that of a
+Neapolitan template, namely, #select and #reject.</p>
 
-    expect TypeError do
-      template.reject do |format|
-        raise TypeError if %w{liquid}.include?(format)
-        false
-      end
-    end
-</pre>
+<p>After creating a Template object, use the #select and/or the #reject
+methods to filter out any unwanted formats.</p>
+
+<pre>template = Neapolitan.file('example.np')
+
+template.reject{ |format| %w{liquid}.include?(format) }
+
+template.render(:name=&gt;&quot;Tom&quot;)</pre>
+
+<p>These methods can be used for more aggressive validation by raising an
+error.</p>
+
+<pre>template = Neapolitan.file('example.np')
+
+template.reject do |format|
+  raise TypeError if %w{liquid}.include?(format)
+  false
+end
+
+expect TypeError do
+  template.render(:name=&gt;&quot;Tome&quot;)
+end</pre>
+
+<p><b>Why should template formats be listed before markup format?</b></p>
+
+<p>Consider what happens if have a document section proccessed by RDoc before
+applying templating such as ERB:</p>
+
+<pre>= Example
+
+Hi, &lt;%= name %&gt;</pre>
+
+<p>The result never ends up utilizing ERB properly because RDoc transformed
+the document into:</p>
+
+<pre>&lt;h1&gt;Example&lt;/h1&gt;
+
+Hi, &amp;lt;%= name &amp;gt;</pre>
+
+<p>Therefore you should always list the template format before markup formats.
+Of course usually template formats are not used on section by section basis
+in anycase, so this won’t be an issue, but it’s good to know just in case.</p>
 
 
     </div>
