@@ -2,19 +2,18 @@
 
 == 0.4.0 / 2011-11-30
 
-This release update Neapolitan for use with the latest version
-of Malt (v0.4.0). At the same time the underlying API has been improved.
-With the exception of one YAML front matter property, the API is 
-compatible with the previous verison. The `common` field has been
-renamed to `finish`, to better indicate when it is applied during
-rendering.
+This release updates Neapolitan for use with the latest version
+of Malt (v0.4.0). At the same, time the underlying API has been improved.
+The API remains compatible with the previous version, with the exception
+of one YAML front matter property --the `common` field has been renamed
+to `finish`, to better indicate when it is applied during rendering.
 
 Changes:
 
 * Rename `common` metadata property to `finish`.
 * Add #format block setter for applying complex format rules.
-* Changed #select and #reject so they are applied during rendering.
-* Update part rendering for compatiblity with Malt 0.4+.
+* Apply #select and #reject blocks during rendering instead of before.
+* Update part rendering for compatibility with Malt 0.4+.
 
 
 == 0.3.0 / 2010-11-09
@@ -42,7 +41,7 @@ Changes:
 
 == 0.1.0 / 2008-10-25
 
-Not an offical release. This is the first usable version of Chocolates.
+Not an official release. This is the first usable version of Chocolates.
 
 Changes:
 
