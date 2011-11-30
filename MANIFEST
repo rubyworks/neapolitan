@@ -9,6 +9,10 @@ demo/fixtures/example.np
 demo/fixtures/example.yaml
 lib/neapolitan/cli.rb
 lib/neapolitan/core_ext.rb
+lib/neapolitan/factory.rb
+lib/neapolitan/part.rb
+lib/neapolitan/rendering.rb
+lib/neapolitan/template.rb
 lib/neapolitan/version.rb
 lib/neapolitan.rb
 lib/neapolitan.yml

@@ -9,6 +9,7 @@ replacements: []
 alternatives: []
 requirements:
 - name: malt
+  version: 0.4.0+
 - name: detroit
   groups:
   - build
@@ -59,7 +60,7 @@ revision: 0
 created: '2009-08-25'
 summary: Kid in the Candy Store Templating
 title: Neapolitan
-version: 0.3.0
+version: 0.4.0
 name: neapolitan
 description: ! 'Neapolitan is a meta-templating engine. Like a candy store it allows
   you to pick
@@ -68,4 +69,4 @@ description: ! 'Neapolitan is a meta-templating engine. Like a candy store it al
 
   document. Selections include eruby, textile, markdown and many others.'
 organization: rubyworks
-date: '2011-11-28'
+date: '2011-11-30'
